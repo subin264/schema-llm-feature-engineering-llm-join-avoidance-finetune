@@ -1,0 +1,13 @@
+model,condition,phase,exec_error,exec_timeout,semantic,step1_concat_only,step1_parse_fail,success
+llama,adaptive,after,331,0,174,0,6,19
+llama,adaptive,before,328,0,168,0,2,32
+llama,baseline,after,444,0,67,1,12,6
+llama,baseline,before,387,1,120,0,3,19
+llama,uniform,after,313,0,185,0,8,24
+llama,uniform,before,301,0,204,0,2,23
+qwen,adaptive,after,273,1,214,0,1,41
+qwen,adaptive,before,330,0,172,0,0,28
+qwen,baseline,after,377,0,135,1,2,15
+qwen,baseline,before,377,0,134,1,1,17
+qwen,uniform,after,263,0,232,0,1,34
+qwen,uniform,before,315,0,197,0,0,18

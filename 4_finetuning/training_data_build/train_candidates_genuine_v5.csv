@@ -1,0 +1,696 @@
+db_id,question_id,question,hop_diameter,schema_text,prompt,code,n_merge,genuine_join
+formula_1,862,"For the Bahrain Grand Prix in 2007, how many drivers not finished the game?",2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: For the Bahrain Grand Prix in 2007, how many drivers not finished the game?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def count_drivers_not_finished_bahrain_2007(races, results, status):
+    # Filter races to get the Bahrain Grand Prix in 2007
+    target_race = races[(races['year'] == 2007) & (races['name'] == 'Bahrain Grand Prix')]
+    
+    # Merge results with the filtered race to get only relevant results
+    merged = pd.merge(target_race, results, on='raceId', how='inner')
+    
+    # Merge with status table to get status description
+    merged = pd.merge(merged, status, on='statusId', how='inner')
+    
+    # Count drivers whose status is not 'Finished'
+    not_finished_count = merged[merged['status'] != 'Finished'].shape[0]
+    
+    return not_finished_count",2,True
+formula_1,895,What is the average lap time for Lewis Hamilton in the 2009 Malaysian Grand Prix?,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: What is the average lap time for Lewis Hamilton in the 2009 Malaysian Grand Prix?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def average_lap_time_hamilton_2009_malaysian_gp(
+    drivers: pd.DataFrame,
+    races: pd.DataFrame,
+    lapTimes: pd.DataFrame
+) -> float:
+    # Filter driver record for Lewis Hamilton via merge
+    driver_filter = pd.DataFrame({'driverRef': ['hamilton'], 'forename': ['Lewis'], 'surname': ['Hamilton']})
+    hamilton_driver = pd.merge(drivers, driver_filter, on=['driverRef', 'forename', 'surname'], how='inner')
+
+    # Filter race record for 2009 Malaysian Grand Prix via merge
+    race_filter = pd.DataFrame({'year': [2009], 'name': ['Malaysian Grand Prix']})
+    target_race = pd.merge(races, race_filter, on=['year', 'name'], how='inner')
+
+    # Merge lapTimes with the specific driver
+    merged = pd.merge(lapTimes, hamilton_driver[['driverId']], on='driverId', how='inner')
+
+    # Merge result with the specific race
+    merged = pd.merge(merged, target_race[['raceId']], on='raceId', how='inner')
+
+    # Compute average lap time in milliseconds
+    if merged.empty:
+        return None
+
+    avg_lap_time_ms = merged['milliseconds'].mean()
+
+    return avg_lap_time_ms",4,True
+formula_1,932,In which years did Lewis Hamilton participate in a Formula_1 race?,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: In which years did Lewis Hamilton participate in a Formula_1 race?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_hamilton_participation_years(drivers, races, results):
+    # Filter Lewis Hamilton using merge instead of manual filtering
+    hamilton_driver = pd.DataFrame({'driverRef': ['hamilton'], 'forename': ['Lewis'], 'surname': ['Hamilton']})
+    
+    hamilton = pd.merge(
+        drivers,
+        hamilton_driver,
+        on=['driverRef', 'forename', 'surname'],
+        how='inner'
+    )
+    
+    # Join with results to find races Hamilton participated in
+    hamilton_results = pd.merge(
+        hamilton,
+        results,
+        on='driverId',
+        how='inner'
+    )
+    
+    # Join with races to get the year of each race
+    hamilton_races = pd.merge(
+        hamilton_results,
+        races,
+        on='raceId',
+        how='inner'
+    )
+    
+    # Extract unique years
+    years = hamilton_races['year'].drop_duplicates().sort_values().reset_index(drop=True)
+    
+    return years",3,True
+formula_1,933,What was Lewis Hamilton's final rank in the 2008 Chinese Grand Prix?,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: What was Lewis Hamilton's final rank in the 2008 Chinese Grand Prix?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_hamilton_2008_chinese_gp_rank(drivers, races, results):
+    # Filter driver info for Lewis Hamilton via merge
+    hamilton = drivers[(drivers['forename'] == 'Lewis') & (drivers['surname'] == 'Hamilton')]
+
+    # Filter race info for 2008 Chinese Grand Prix via merge
+    target_race = races[(races['year'] == 2008) & (races['name'].str.contains('Chinese Grand Prix', case=False, na=False))]
+
+    # Merge results with driver info
+    merged = pd.merge(results, hamilton, on='driverId', how='inner')
+
+    # Merge with race info
+    merged = pd.merge(merged, target_race, on='raceId', how='inner')
+
+    if merged.empty:
+        return None
+
+    final_rank = merged.iloc[0]['positionOrder']
+    return final_rank
+
+# Example usage:
+# rank = get_hamilton_2008_chinese_gp_rank(drivers, races, results)
+# print(rank)",2,True
+formula_1,934,Which driver was in the no. 4 grid formation when starting the race in 1989's Australian Grand Prix? Please give his forename and surname.,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: Which driver was in the no. 4 grid formation when starting the race in 1989's Australian Grand Prix? Please give his forename and surname.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_driver_grid4_1989_australian_gp(races, results, drivers):
+    # Filter race: 1989 Australian Grand Prix
+    target_race = races[(races['year'] == 1989) & (races['name'].str.contains('Australian Grand Prix', case=False, na=False))]
+
+    # Merge race with results
+    merged = pd.merge(target_race, results, on='raceId')
+
+    # Filter grid position 4
+    merged = merged[merged['grid'] == 4]
+
+    # Merge with drivers to get forename and surname
+    merged = pd.merge(merged, drivers, on='driverId')
+
+    return merged[['forename', 'surname']]",2,True
+formula_1,982,How many American drivers have puncture status.,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: How many American drivers have puncture status.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(drivers, results, status):
+    # Filter status dataframe for 'Puncture' status using merge
+    punc_status = status[status['status'] == 'Puncture']
+
+    # Merge results with punc_status to get only puncture results
+    merged_results = results.merge(punc_status, on='statusId')
+
+    # Merge with drivers to get nationality info
+    merged_drivers = merged_results.merge(drivers, on='driverId')
+
+    # Filter American drivers using merge with a small American nationality dataframe
+    american_df = pd.DataFrame({'nationality': ['American']})
+    american_drivers = merged_drivers.merge(american_df, on='nationality')
+
+    # Count unique American drivers with puncture status
+    count = american_drivers['driverId'].nunique()
+
+    return count",3,True
+formula_1,1003,How many accidents did the driver who had the highest number accidents in the Canadian Grand Prix have?,2,"- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+","You are working on a feature engineering task for a Formula 1 racing analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- circuits(circuitId, circuitRef, name, location, country, lat, lng, alt, url)
+- constructors(constructorId, constructorRef, name, nationality, url)
+- drivers(driverId, driverRef, number, code, forename, surname, dob, nationality, url)
+- seasons(year, url)
+- races(raceId, year, round, circuitId, name, date, time, url)
+- constructorResults(constructorResultsId, raceId, constructorId, points, status)
+- constructorStandings(constructorStandingsId, raceId, constructorId, points, position, positionText, wins)
+- driverStandings(driverStandingsId, raceId, driverId, points, position, positionText, wins)
+- lapTimes(raceId, driverId, lap, position, time, milliseconds)
+- pitStops(raceId, driverId, stop, lap, time, duration, milliseconds)
+- qualifying(qualifyId, raceId, driverId, constructorId, number, position, q1, q2, q3)
+- status(statusId, status)
+- results(resultId, raceId, driverId, constructorId, number, grid, position, positionText, positionOrder, points, laps, time, milliseconds, fastestLap, rank, fastestLapTime, fastestLapSpeed, statusId)
+
+
+Question: How many accidents did the driver who had the highest number accidents in the Canadian Grand Prix have?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature():
+    # Merge results with races to get race names
+    merged = pd.merge(results, races, on='raceId', how='inner')
+    
+    # Merge with status to get status description
+    merged = pd.merge(merged, status, on='statusId', how='inner')
+    
+    # Filter for Canadian Grand Prix and Accident status
+    canadian_gp_accidents = merged[
+        (merged['name'] == 'Canadian Grand Prix') &
+        (merged['status'] == 'Accident')
+    ]
+    
+    # Count accidents per driver
+    accident_counts = canadian_gp_accidents.groupby('driverId').size().reset_index(name='accident_count')
+    
+    # Find the driver with the highest number of accidents
+    if accident_counts.empty:
+        return 0
+    
+    max_accidents = accident_counts['accident_count'].max()
+    
+    return max_accidents",2,True
+codebase_community,651,"Provide the related post title of ""How to tell if something happened in a data set which monitors a value over time"".",2,"- badges(Id, UserId, Name, Date)
+- comments(Id, PostId, Score, Text, CreationDate, UserId, UserDisplayName)
+- postHistory(Id, PostHistoryTypeId, PostId, RevisionGUID, CreationDate, UserId, Text, Comment, UserDisplayName)
+- postLinks(Id, CreationDate, PostId, RelatedPostId, LinkTypeId)
+- posts(Id, PostTypeId, AcceptedAnswerId, CreaionDate, Score, ViewCount, Body, OwnerUserId, LasActivityDate, Title, Tags, AnswerCount, CommentCount, FavoriteCount, LastEditorUserId, LastEditDate, CommunityOwnedDate, ParentId, ClosedDate, OwnerDisplayName, LastEditorDisplayName)
+- tags(Id, TagName, Count, ExcerptPostId, WikiPostId)
+- users(Id, Reputation, CreationDate, DisplayName, LastAccessDate, WebsiteUrl, Location, AboutMe, Views, UpVotes, DownVotes, AccountId, Age, ProfileImageUrl)
+- votes(Id, PostId, VoteTypeId, CreationDate, UserId, BountyAmount)
+","You are working on a feature engineering task for a community Q&A site analysis model.
+
+Database schema:
+- badges(Id, UserId, Name, Date)
+- comments(Id, PostId, Score, Text, CreationDate, UserId, UserDisplayName)
+- postHistory(Id, PostHistoryTypeId, PostId, RevisionGUID, CreationDate, UserId, Text, Comment, UserDisplayName)
+- postLinks(Id, CreationDate, PostId, RelatedPostId, LinkTypeId)
+- posts(Id, PostTypeId, AcceptedAnswerId, CreaionDate, Score, ViewCount, Body, OwnerUserId, LasActivityDate, Title, Tags, AnswerCount, CommentCount, FavoriteCount, LastEditorUserId, LastEditDate, CommunityOwnedDate, ParentId, ClosedDate, OwnerDisplayName, LastEditorDisplayName)
+- tags(Id, TagName, Count, ExcerptPostId, WikiPostId)
+- users(Id, Reputation, CreationDate, DisplayName, LastAccessDate, WebsiteUrl, Location, AboutMe, Views, UpVotes, DownVotes, AccountId, Age, ProfileImageUrl)
+- votes(Id, PostId, VoteTypeId, CreationDate, UserId, BountyAmount)
+
+
+Question: Provide the related post title of ""How to tell if something happened in a data set which monitors a value over time"".
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_related_post_title(posts, postLinks):
+    # Find the post with the given title
+    target_post = posts[['Id', 'Title']].copy()
+    target_post = target_post[target_post['Title'] == ""How to tell if something happened in a data set which monitors a value over time""]
+
+    # Merge with postLinks to find related posts
+    merged = target_post.merge(postLinks, left_on='Id', right_on='PostId', how='inner')
+
+    # Merge with posts again to get the title of the related post
+    result = merged.merge(posts[['Id', 'Title']], left_on='RelatedPostId', right_on='Id', how='inner', suffixes=('_original', '_related'))
+
+    return result['Title_related']",2,True
+codebase_community,654,Mention the display name and location of the user who owned the excerpt post with hypothesis-testing tag.,2,"- badges(Id, UserId, Name, Date)
+- comments(Id, PostId, Score, Text, CreationDate, UserId, UserDisplayName)
+- postHistory(Id, PostHistoryTypeId, PostId, RevisionGUID, CreationDate, UserId, Text, Comment, UserDisplayName)
+- postLinks(Id, CreationDate, PostId, RelatedPostId, LinkTypeId)
+- posts(Id, PostTypeId, AcceptedAnswerId, CreaionDate, Score, ViewCount, Body, OwnerUserId, LasActivityDate, Title, Tags, AnswerCount, CommentCount, FavoriteCount, LastEditorUserId, LastEditDate, CommunityOwnedDate, ParentId, ClosedDate, OwnerDisplayName, LastEditorDisplayName)
+- tags(Id, TagName, Count, ExcerptPostId, WikiPostId)
+- users(Id, Reputation, CreationDate, DisplayName, LastAccessDate, WebsiteUrl, Location, AboutMe, Views, UpVotes, DownVotes, AccountId, Age, ProfileImageUrl)
+- votes(Id, PostId, VoteTypeId, CreationDate, UserId, BountyAmount)
+","You are working on a feature engineering task for a community Q&A site analysis model.
+
+Database schema:
+- badges(Id, UserId, Name, Date)
+- comments(Id, PostId, Score, Text, CreationDate, UserId, UserDisplayName)
+- postHistory(Id, PostHistoryTypeId, PostId, RevisionGUID, CreationDate, UserId, Text, Comment, UserDisplayName)
+- postLinks(Id, CreationDate, PostId, RelatedPostId, LinkTypeId)
+- posts(Id, PostTypeId, AcceptedAnswerId, CreaionDate, Score, ViewCount, Body, OwnerUserId, LasActivityDate, Title, Tags, AnswerCount, CommentCount, FavoriteCount, LastEditorUserId, LastEditDate, CommunityOwnedDate, ParentId, ClosedDate, OwnerDisplayName, LastEditorDisplayName)
+- tags(Id, TagName, Count, ExcerptPostId, WikiPostId)
+- users(Id, Reputation, CreationDate, DisplayName, LastAccessDate, WebsiteUrl, Location, AboutMe, Views, UpVotes, DownVotes, AccountId, Age, ProfileImageUrl)
+- votes(Id, PostId, VoteTypeId, CreationDate, UserId, BountyAmount)
+
+
+Question: Mention the display name and location of the user who owned the excerpt post with hypothesis-testing tag.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_hypothesis_testing_excerpt_owner(tags, posts, users):
+    # Filter the hypothesis-testing tag using merge
+    tag_filter = pd.DataFrame({'TagName': ['hypothesis-testing']})
+    hypo_tag = pd.merge(tags, tag_filter, on='TagName', how='inner')
+
+    # Join tags with posts on ExcerptPostId = posts.Id
+    tag_post = pd.merge(hypo_tag, posts, left_on='ExcerptPostId', right_on='Id', how='inner', suffixes=('_tag', '_post'))
+
+    # Join with users on OwnerUserId = users.Id
+    result = pd.merge(tag_post, users, left_on='OwnerUserId', right_on='Id', how='inner', suffixes=('', '_user'))
+
+    # Select relevant columns
+    result = result[['DisplayName', 'Location']]
+
+    return result",3,True
+thrombosis_prediction,1194,"What sex is the patient who in a medical examination was diagnosed with PSS and in a laboratory examination had a blood level of C-reactive protein de 2+, createnine 1 and LDH 123?",2,"- Examination(ID, Examination Date, aCL IgG, aCL IgM, ANA, ANA Pattern, aCL IgA, Diagnosis, KCT, RVVT, LAC, Symptoms, Thrombosis)
+- Patient(ID, SEX, Birthday, Description, First Date, Admission, Diagnosis)
+- Laboratory(ID, Date, GOT, GPT, LDH, ALP, TP, ALB, UA, UN, CRE, T-BIL, T-CHO, TG, CPK, GLU, WBC, RBC, HGB, HCT, PLT, PT, APTT, FG, PIC, TAT, TAT2, U-PRO, IGG, IGA, IGM, CRP, RA, RF, C3, C4, RNP, SM, SC170, SSA, SSB, CENTROMEA, DNA, DNA-II)
+","You are working on a feature engineering task for a thrombosis prediction analysis model.
+
+Database schema:
+- Examination(ID, Examination Date, aCL IgG, aCL IgM, ANA, ANA Pattern, aCL IgA, Diagnosis, KCT, RVVT, LAC, Symptoms, Thrombosis)
+- Patient(ID, SEX, Birthday, Description, First Date, Admission, Diagnosis)
+- Laboratory(ID, Date, GOT, GPT, LDH, ALP, TP, ALB, UA, UN, CRE, T-BIL, T-CHO, TG, CPK, GLU, WBC, RBC, HGB, HCT, PLT, PT, APTT, FG, PIC, TAT, TAT2, U-PRO, IGG, IGA, IGM, CRP, RA, RF, C3, C4, RNP, SM, SC170, SSA, SSB, CENTROMEA, DNA, DNA-II)
+
+
+Question: What sex is the patient who in a medical examination was diagnosed with PSS and in a laboratory examination had a blood level of C-reactive protein de 2+, createnine 1 and LDH 123?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_patient_sex():
+    # Filter examination records diagnosed with PSS
+    exam_pss = Examination[Examination['Diagnosis'] == 'PSS']
+
+    # Filter laboratory records matching CRP, CRE, LDH criteria
+    lab_filtered = Laboratory[
+        (Laboratory['CRP'] == '2+') &
+        (Laboratory['CRE'] == 1) &
+        (Laboratory['LDH'] == 123)
+    ]
+
+    # Merge examination and laboratory results on patient ID
+    merged = pd.merge(exam_pss, lab_filtered, on='ID', how='inner')
+
+    # Merge with Patient table to get sex
+    result = pd.merge(merged, Patient, on='ID', how='inner')
+
+    return result['SEX']",2,True
+thrombosis_prediction,1246,"For the patients with an abnormal activated partial prothrom bin time, how many of them does not have thrombosis?",2,"- Examination(ID, Examination Date, aCL IgG, aCL IgM, ANA, ANA Pattern, aCL IgA, Diagnosis, KCT, RVVT, LAC, Symptoms, Thrombosis)
+- Patient(ID, SEX, Birthday, Description, First Date, Admission, Diagnosis)
+- Laboratory(ID, Date, GOT, GPT, LDH, ALP, TP, ALB, UA, UN, CRE, T-BIL, T-CHO, TG, CPK, GLU, WBC, RBC, HGB, HCT, PLT, PT, APTT, FG, PIC, TAT, TAT2, U-PRO, IGG, IGA, IGM, CRP, RA, RF, C3, C4, RNP, SM, SC170, SSA, SSB, CENTROMEA, DNA, DNA-II)
+","You are working on a feature engineering task for a thrombosis prediction analysis model.
+
+Database schema:
+- Examination(ID, Examination Date, aCL IgG, aCL IgM, ANA, ANA Pattern, aCL IgA, Diagnosis, KCT, RVVT, LAC, Symptoms, Thrombosis)
+- Patient(ID, SEX, Birthday, Description, First Date, Admission, Diagnosis)
+- Laboratory(ID, Date, GOT, GPT, LDH, ALP, TP, ALB, UA, UN, CRE, T-BIL, T-CHO, TG, CPK, GLU, WBC, RBC, HGB, HCT, PLT, PT, APTT, FG, PIC, TAT, TAT2, U-PRO, IGG, IGA, IGM, CRP, RA, RF, C3, C4, RNP, SM, SC170, SSA, SSB, CENTROMEA, DNA, DNA-II)
+
+
+Question: For the patients with an abnormal activated partial prothrom bin time, how many of them does not have thrombosis?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(Examination, Patient, Laboratory):
+    # Merge Patient with Laboratory on ID
+    merged = pd.merge(Patient, Laboratory, on='ID', how='inner')
+    
+    # Filter for abnormal APTT (normal range is typically 24-39 seconds, using >39 as abnormal)
+    abnormal_aptt = merged[merged['APTT'] > 39]
+    
+    # Merge with Examination on ID to get Thrombosis info
+    merged_exam = pd.merge(abnormal_aptt, Examination, on='ID', how='inner')
+    
+    # Filter for patients with no thrombosis (Thrombosis == 0)
+    no_thrombosis = merged_exam[merged_exam['Thrombosis'] == 0]
+    
+    # Count unique patients
+    result = no_thrombosis['ID'].nunique()
+    
+    return result",2,True
+toxicology,253,List the elements of all the triple bonds.,2,"- atom(atom_id, molecule_id, element)
+- bond(bond_id, molecule_id, bond_type)
+- connected(atom_id, atom_id2, bond_id)
+- molecule(molecule_id, label)
+","You are working on a feature engineering task for a toxicology analysis model.
+
+Database schema:
+- atom(atom_id, molecule_id, element)
+- bond(bond_id, molecule_id, bond_type)
+- connected(atom_id, atom_id2, bond_id)
+- molecule(molecule_id, label)
+
+
+Question: List the elements of all the triple bonds.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(atom, bond, connected, molecule):
+    # Filter triple bonds
+    triple_bonds = bond[bond['bond_type'] == '#']
+
+    # Join with connected to get atoms involved in triple bonds
+    merged = pd.merge(triple_bonds, connected, on='bond_id')
+
+    # Get elements for atom_id
+    merged = pd.merge(merged, atom, on='atom_id')
+    elements1 = merged[['element']]
+
+    # Get elements for atom_id2
+    merged2 = pd.merge(merged, atom, left_on='atom_id2', right_on='atom_id', suffixes=('', '_2'))
+    elements2 = merged2[['element_2']].rename(columns={'element_2': 'element'})
+
+    # Combine elements from both atoms
+    result = pd.concat([elements1, elements2], ignore_index=True).drop_duplicates()
+
+    return result",3,True
+card_games,409,"Indicates the number of cards with pre-modern format, ruling text ""This is a triggered mana ability."" that do not have multiple faces.",2,"- sqlite_sequence(name, seq)
+- cards(id, artist, asciiName, availability, borderColor, cardKingdomFoilId, cardKingdomId, colorIdentity, colorIndicator, colors, convertedManaCost, duelDeck, edhrecRank, faceConvertedManaCost, faceName, flavorName, flavorText, frameEffects, frameVersion, hand, hasAlternativeDeckLimit, hasContentWarning, hasFoil, hasNonFoil, isAlternative, isFullArt, isOnlineOnly, isOversized, isPromo, isReprint, isReserved, isStarter, isStorySpotlight, isTextless, isTimeshifted, keywords, layout, leadershipSkills, life, loyalty, manaCost, mcmId, mcmMetaId, mtgArenaId, mtgjsonV4Id, mtgoFoilId, mtgoId, multiverseId, name, number, originalReleaseDate, originalText, originalType, otherFaceIds, power, printings, promoTypes, purchaseUrls, rarity, scryfallId, scryfallIllustrationId, scryfallOracleId, setCode, side, subtypes, supertypes, tcgplayerProductId, text, toughness, type, types, uuid, variations, watermark)
+- foreign_data(id, flavorText, language, multiverseid, name, text, type, uuid)
+- legalities(id, format, status, uuid)
+- sets(id, baseSetSize, block, booster, code, isFoilOnly, isForeignOnly, isNonFoilOnly, isOnlineOnly, isPartialPreview, keyruneCode, mcmId, mcmIdExtras, mcmName, mtgoCode, name, parentCode, releaseDate, tcgplayerGroupId, totalSetSize, type)
+- set_translations(id, language, setCode, translation)
+- rulings(id, date, text, uuid)
+","You are working on a feature engineering task for a card game analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- cards(id, artist, asciiName, availability, borderColor, cardKingdomFoilId, cardKingdomId, colorIdentity, colorIndicator, colors, convertedManaCost, duelDeck, edhrecRank, faceConvertedManaCost, faceName, flavorName, flavorText, frameEffects, frameVersion, hand, hasAlternativeDeckLimit, hasContentWarning, hasFoil, hasNonFoil, isAlternative, isFullArt, isOnlineOnly, isOversized, isPromo, isReprint, isReserved, isStarter, isStorySpotlight, isTextless, isTimeshifted, keywords, layout, leadershipSkills, life, loyalty, manaCost, mcmId, mcmMetaId, mtgArenaId, mtgjsonV4Id, mtgoFoilId, mtgoId, multiverseId, name, number, originalReleaseDate, originalText, originalType, otherFaceIds, power, printings, promoTypes, purchaseUrls, rarity, scryfallId, scryfallIllustrationId, scryfallOracleId, setCode, side, subtypes, supertypes, tcgplayerProductId, text, toughness, type, types, uuid, variations, watermark)
+- foreign_data(id, flavorText, language, multiverseid, name, text, type, uuid)
+- legalities(id, format, status, uuid)
+- sets(id, baseSetSize, block, booster, code, isFoilOnly, isForeignOnly, isNonFoilOnly, isOnlineOnly, isPartialPreview, keyruneCode, mcmId, mcmIdExtras, mcmName, mtgoCode, name, parentCode, releaseDate, tcgplayerGroupId, totalSetSize, type)
+- set_translations(id, language, setCode, translation)
+- rulings(id, date, text, uuid)
+
+
+Question: Indicates the number of cards with pre-modern format, ruling text ""This is a triggered mana ability."" that do not have multiple faces.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(cards, legalities, rulings):
+    # Filter legalities for premodern format
+    premodern_legal = legalities[legalities['format'] == 'premodern']
+    
+    # Filter rulings for the specific text
+    specific_rulings = rulings[rulings['text'] == 'This is a triggered mana ability.']
+    
+    # Merge cards with premodern legalities on uuid
+    merged = pd.merge(cards, premodern_legal, on='uuid', how='inner')
+    
+    # Merge result with specific rulings on uuid
+    merged = pd.merge(merged, specific_rulings, on='uuid', how='inner')
+    
+    # Filter cards that do not have multiple faces (otherFaceIds is null/empty)
+    result = merged[merged['otherFaceIds'].isna() | (merged['otherFaceIds'] == '')]
+    
+    # Count distinct cards by uuid
+    count = result['uuid'].nunique()
+    
+    return count",2,True
+european_football_2,1101,What is the average number of goals made by Parma as the away team while playing in Italy?,2,"- sqlite_sequence(name, seq)
+- Player_Attributes(id, player_fifa_api_id, player_api_id, date, overall_rating, potential, preferred_foot, attacking_work_rate, defensive_work_rate, crossing, finishing, heading_accuracy, short_passing, volleys, dribbling, curve, free_kick_accuracy, long_passing, ball_control, acceleration, sprint_speed, agility, reactions, balance, shot_power, jumping, stamina, strength, long_shots, aggression, interceptions, positioning, vision, penalties, marking, standing_tackle, sliding_tackle, gk_diving, gk_handling, gk_kicking, gk_positioning, gk_reflexes)
+- Player(id, player_api_id, player_name, player_fifa_api_id, birthday, height, weight)
+- League(id, country_id, name)
+- Country(id, name)
+- Team(id, team_api_id, team_fifa_api_id, team_long_name, team_short_name)
+- Team_Attributes(id, team_fifa_api_id, team_api_id, date, buildUpPlaySpeed, buildUpPlaySpeedClass, buildUpPlayDribbling, buildUpPlayDribblingClass, buildUpPlayPassing, buildUpPlayPassingClass, buildUpPlayPositioningClass, chanceCreationPassing, chanceCreationPassingClass, chanceCreationCrossing, chanceCreationCrossingClass, chanceCreationShooting, chanceCreationShootingClass, chanceCreationPositioningClass, defencePressure, defencePressureClass, defenceAggression, defenceAggressionClass, defenceTeamWidth, defenceTeamWidthClass, defenceDefenderLineClass)
+- Match(id, country_id, league_id, season, stage, date, match_api_id, home_team_api_id, away_team_api_id, home_team_goal, away_team_goal, home_player_X1, home_player_X2, home_player_X3, home_player_X4, home_player_X5, home_player_X6, home_player_X7, home_player_X8, home_player_X9, home_player_X10, home_player_X11, away_player_X1, away_player_X2, away_player_X3, away_player_X4, away_player_X5, away_player_X6, away_player_X7, away_player_X8, away_player_X9, away_player_X10, away_player_X11, home_player_Y1, home_player_Y2, home_player_Y3, home_player_Y4, home_player_Y5, home_player_Y6, home_player_Y7, home_player_Y8, home_player_Y9, home_player_Y10, home_player_Y11, away_player_Y1, away_player_Y2, away_player_Y3, away_player_Y4, away_player_Y5, away_player_Y6, away_player_Y7, away_player_Y8, away_player_Y9, away_player_Y10, away_player_Y11, home_player_1, home_player_2, home_player_3, home_player_4, home_player_5, home_player_6, home_player_7, home_player_8, home_player_9, home_player_10, home_player_11, away_player_1, away_player_2, away_player_3, away_player_4, away_player_5, away_player_6, away_player_7, away_player_8, away_player_9, away_player_10, away_player_11, goal, shoton, shotoff, foulcommit, card, cross, corner, possession, B365H, B365D, B365A, BWH, BWD, BWA, IWH, IWD, IWA, LBH, LBD, LBA, PSH, PSD, PSA, WHH, WHD, WHA, SJH, SJD, SJA, VCH, VCD, VCA, GBH, GBD, GBA, BSH, BSD, BSA)
+","You are working on a feature engineering task for a European football analysis model.
+
+Database schema:
+- sqlite_sequence(name, seq)
+- Player_Attributes(id, player_fifa_api_id, player_api_id, date, overall_rating, potential, preferred_foot, attacking_work_rate, defensive_work_rate, crossing, finishing, heading_accuracy, short_passing, volleys, dribbling, curve, free_kick_accuracy, long_passing, ball_control, acceleration, sprint_speed, agility, reactions, balance, shot_power, jumping, stamina, strength, long_shots, aggression, interceptions, positioning, vision, penalties, marking, standing_tackle, sliding_tackle, gk_diving, gk_handling, gk_kicking, gk_positioning, gk_reflexes)
+- Player(id, player_api_id, player_name, player_fifa_api_id, birthday, height, weight)
+- League(id, country_id, name)
+- Country(id, name)
+- Team(id, team_api_id, team_fifa_api_id, team_long_name, team_short_name)
+- Team_Attributes(id, team_fifa_api_id, team_api_id, date, buildUpPlaySpeed, buildUpPlaySpeedClass, buildUpPlayDribbling, buildUpPlayDribblingClass, buildUpPlayPassing, buildUpPlayPassingClass, buildUpPlayPositioningClass, chanceCreationPassing, chanceCreationPassingClass, chanceCreationCrossing, chanceCreationCrossingClass, chanceCreationShooting, chanceCreationShootingClass, chanceCreationPositioningClass, defencePressure, defencePressureClass, defenceAggression, defenceAggressionClass, defenceTeamWidth, defenceTeamWidthClass, defenceDefenderLineClass)
+- Match(id, country_id, league_id, season, stage, date, match_api_id, home_team_api_id, away_team_api_id, home_team_goal, away_team_goal, home_player_X1, home_player_X2, home_player_X3, home_player_X4, home_player_X5, home_player_X6, home_player_X7, home_player_X8, home_player_X9, home_player_X10, home_player_X11, away_player_X1, away_player_X2, away_player_X3, away_player_X4, away_player_X5, away_player_X6, away_player_X7, away_player_X8, away_player_X9, away_player_X10, away_player_X11, home_player_Y1, home_player_Y2, home_player_Y3, home_player_Y4, home_player_Y5, home_player_Y6, home_player_Y7, home_player_Y8, home_player_Y9, home_player_Y10, home_player_Y11, away_player_Y1, away_player_Y2, away_player_Y3, away_player_Y4, away_player_Y5, away_player_Y6, away_player_Y7, away_player_Y8, away_player_Y9, away_player_Y10, away_player_Y11, home_player_1, home_player_2, home_player_3, home_player_4, home_player_5, home_player_6, home_player_7, home_player_8, home_player_9, home_player_10, home_player_11, away_player_1, away_player_2, away_player_3, away_player_4, away_player_5, away_player_6, away_player_7, away_player_8, away_player_9, away_player_10, away_player_11, goal, shoton, shotoff, foulcommit, card, cross, corner, possession, B365H, B365D, B365A, BWH, BWD, BWA, IWH, IWD, IWA, LBH, LBD, LBA, PSH, PSD, PSA, WHH, WHD, WHA, SJH, SJD, SJA, VCH, VCD, VCA, GBH, GBD, GBA, BSH, BSD, BSA)
+
+
+Question: What is the average number of goals made by Parma as the away team while playing in Italy?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def average_away_goals_parma_italy(Match, Team, Country):
+    # Merge Match with Team to get away team info
+    merged = pd.merge(Match, Team, left_on='away_team_api_id', right_on='team_api_id')
+    
+    # Merge with Country to filter by Italy
+    merged = pd.merge(merged, Country, left_on='country_id', right_on='id', suffixes=('', '_country'))
+    
+    # Filter for Parma as the away team and Italy as the country
+    filtered = merged[(merged['team_long_name'] == 'Parma') & (merged['name'] == 'Italy')]
+    
+    # Compute the average away goals
+    avg_away_goals = filtered['away_team_goal'].mean()
+    
+    return avg_away_goals",2,True

@@ -1,0 +1,531 @@
+question_id,repeat_idx,exec_ok,err,value_match
+89,0,True,,False
+89,1,False,exec_error: KeyError: 'type',
+89,2,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+89,3,False,exec_error: KeyError: 'account_id',
+89,4,False,exec_error: KeyError: 'account_id',
+90,0,False,exec_error: KeyError: 'A1',
+90,1,True,,False
+90,2,False,exec_error: KeyError: 'A1',
+90,3,True,,False
+90,4,True,,False
+91,0,False,exec_error: KeyError: 'date',
+91,1,False,exec_error: NameError: name 'feature_df' is not defined,
+91,2,,,
+91,3,,,
+91,4,False,exec_error: KeyError: 'date',
+92,0,False,exec_error: KeyError: 'disp_id',
+92,1,False,exec_error: KeyError: 'client_id',
+92,2,False,"exec_error: KeyError: ""['salary'] not in index""",
+92,3,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+92,4,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+93,0,False,exec_error: KeyError: 'amount',
+93,1,False,exec_error: KeyError: 'client_id',
+93,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+93,3,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+93,4,True,,False
+94,0,False,exec_error: KeyError: 'client_id',
+94,1,False,exec_error: KeyError: 'account_id',
+94,2,False,exec_error: KeyError: 'client_id',
+94,3,False,exec_error: KeyError: 'account_id',
+94,4,False,exec_error: KeyError: 'account_id',
+95,0,False,exec_error: KeyError: 'client_id',
+95,1,False,exec_error: KeyError: 'disp_id',
+95,2,False,exec_error: KeyError: 'birth_date',
+95,3,False,exec_error: KeyError: 'client_id',
+95,4,False,exec_error: KeyError: 'account_id',
+96,0,False,exec_error: KeyError: 'account_id',
+96,1,False,exec_error: KeyError: 'client_id',
+96,2,False,exec_error: KeyError: 'frequency',
+96,3,False,exec_error: KeyError: 'disp_id',
+96,4,False,exec_error: KeyError: 'frequency',
+97,0,False,exec_error: KeyError: 'disp_id',
+97,1,False,exec_error: KeyError: 'client_id',
+97,2,False,exec_error: KeyError: 'disp_id',
+97,3,False,exec_error: TypeError: unsupported operand type(s) for &: 'str' and 'StringArray',
+97,4,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+98,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,2,False,exec_error: KeyError: 'date',
+98,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+99,0,False,exec_error: KeyError: 'issued',
+99,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+99,2,False,exec_error: TypeError: unsupported operand type(s) for -: 'Timestamp' and 'str',
+99,3,False,exec_error: KeyError: 'date',
+99,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+100,0,True,,False
+100,1,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'split',
+100,2,False,exec_error: KeyError: 'client_id',
+100,3,True,,False
+100,4,True,,False
+101,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,1,False,exec_error: KeyError: 'date',
+101,2,False,exec_error: KeyError: 'trans',
+101,3,False,exec_error: NameError: name 'accounts' is not defined,
+101,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+102,1,True,,False
+102,2,False,exec_error: AttributeError: 'numpy.ndarray' object has no attribute 'isin',
+102,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+102,4,False,exec_error: KeyError: 'date',
+103,0,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'card.csv',
+103,1,True,,False
+103,2,False,exec_error: KeyError: 'disp_id',
+103,3,False,exec_error: KeyError: 'disp_id',
+103,4,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'card.csv',
+104,0,True,,True
+104,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+104,2,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+104,3,True,,False
+104,4,True,,True
+105,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+105,1,False,exec_error: KeyError: 'district_id',
+105,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+105,3,False,exec_error: KeyError: 'disp_id',
+105,4,True,,True
+106,0,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'account.csv',
+106,1,False,exec_error: KeyError: 'issued',
+106,2,False,exec_error: KeyError: 'client_id',
+106,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,4,False,exec_error: KeyError: 'client_id',
+107,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+107,1,False,exec_error: KeyError: 'account_id',
+107,2,False,exec_error: KeyError: 'account_id',
+107,3,False,exec_error: KeyError: 'account_id',
+107,4,False,exec_error: KeyError: 'account_id',
+108,0,False,exec_error: KeyError: 'client_id',
+108,1,False,exec_error: KeyError: 'date',
+108,2,True,,False
+108,3,True,,False
+108,4,True,,False
+109,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not integer",
+109,1,False,exec_error: KeyError: 'client_id',
+109,2,False,exec_error: KeyError: 'client_id',
+109,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+109,4,True,,False
+110,0,True,,False
+110,1,True,,False
+110,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+110,3,True,,False
+110,4,True,,False
+111,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,3,True,,False
+111,4,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'account.csv',
+112,0,False,exec_error: KeyError: 'client_id',
+112,1,False,exec_error: KeyError: 'client_id',
+112,2,False,exec_error: KeyError: 'client_id',
+112,3,False,exec_error: KeyError: 'account_id',
+112,4,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'client.csv',
+113,0,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+113,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+113,2,True,,False
+113,3,False,exec_error: KeyError: 'account_id',
+113,4,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,0,False,exec_error: AttributeError: 'Series' object has no attribute 'merge',
+114,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+114,2,False,exec_error: KeyError: 'district_id',
+114,3,False,exec_error: KeyError: 'district_id',
+114,4,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+115,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+115,1,False,exec_error: KeyError: 'A1',
+115,2,False,exec_error: KeyError: 'Znojmo',
+115,3,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+115,4,True,,False
+116,0,True,,False
+116,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+116,2,True,,False
+116,3,True,,False
+116,4,True,,False
+117,0,True,,False
+117,1,False,exec_error: KeyError: 'k_symbol',
+117,2,True,,False
+117,3,True,,False
+117,4,True,,False
+118,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+118,1,True,,False
+118,2,True,,False
+118,3,True,,False
+118,4,True,,False
+119,0,False,exec_error: KeyError: 'account_id',
+119,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,3,False,exec_error: KeyError: 'account_id',
+119,4,False,exec_error: KeyError: 'disp_id',
+120,0,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and str,
+120,1,False,exec_error: IndexError: Boolean index has wrong length: 4500 instead of 0,
+120,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+120,3,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+120,4,False,exec_error: KeyError: 'account_id',
+121,0,False,exec_error: KeyError: 'A2',
+121,1,True,,False
+121,2,True,,True
+121,3,True,,True
+121,4,True,,True
+122,0,True,,False
+122,1,True,,False
+122,2,False,exec_error: KeyError: 'account_id',
+122,3,True,,False
+122,4,True,,False
+123,0,True,,False
+123,1,True,,False
+123,2,True,,False
+123,3,True,,False
+123,4,True,,False
+124,0,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+124,1,False,exec_error: KeyError: 'account_id',
+124,2,False,exec_error: KeyError: 'client_id',
+124,3,False,exec_error: KeyError: 'account_id',
+124,4,False,exec_error: KeyError: 'account_id',
+125,0,False,exec_error: KeyError: 'balance',
+125,1,False,exec_error: KeyError: 'debt',
+125,2,False,exec_error: KeyError: 'debt',
+125,3,False,exec_error: NameError: name 'df_loan_status' is not defined,
+125,4,False,"exec_error: KeyError: ""None of [Index(['account_id'], dtype='str')] are in the [columns]""",
+126,0,True,,False
+126,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,4,False,exec_error: NameError: name 'accounts' is not defined,
+127,0,True,,False
+127,1,True,,False
+127,2,True,,False
+127,3,False,exec_error: KeyError: 'account_id',
+127,4,True,,False
+128,0,False,exec_error: KeyError: 'account_id',
+128,1,False,exec_error: KeyError: 'account_id',
+128,2,False,exec_error: KeyError: 'district_id',
+128,3,True,,False
+128,4,False,exec_error: KeyError: 'account_id',
+129,0,False,exec_error: KeyError: 'date',
+129,1,False,exec_error: KeyError: 'k_symbol',
+129,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+129,3,False,exec_error: KeyError: 'account_id',
+129,4,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'split',
+130,0,False,exec_error: KeyError: 'account_id',
+130,1,False,exec_error: KeyError: 'account_id',
+130,2,False,exec_error: KeyError: 'account_id',
+130,3,False,exec_error: KeyError: 'account_id',
+130,4,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+131,0,False,exec_error: KeyError: 'district',
+131,1,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,2,False,"exec_error: KeyError: ""['A1'] not in index""",
+131,3,True,,False
+131,4,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+132,0,False,exec_error: KeyError: 'account_id',
+132,1,True,,False
+132,2,False,exec_error: KeyError: 'client_id',
+132,3,False,exec_error: KeyError: 'account_id',
+132,4,False,exec_error: KeyError: 'client_id',
+133,0,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+133,1,False,exec_error: KeyError: 'Column not found: date',
+133,2,False,exec_error: ValueError: DataFrame constructor not properly called!,
+133,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+133,4,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+134,0,False,exec_error: KeyError: 'disp_id',
+134,1,False,"exec_error: ValueError: cannot insert account_id, already exists",
+134,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+134,3,False,exec_error: KeyError: 'disp_id',
+134,4,True,,True
+135,0,False,exec_error: KeyError: 'disp_id',
+135,1,False,exec_error: KeyError: 'account_id',
+135,2,False,exec_error: KeyError: 'frequency',
+135,3,False,exec_error: KeyError: 'account_id',
+135,4,True,,False
+136,0,True,,False
+136,1,True,,False
+136,2,False,exec_error: KeyError: 'account_id',
+136,3,False,exec_error: KeyError: 'disp_id',
+136,4,False,exec_error: KeyError: 'disp_id',
+137,0,True,,False
+137,1,True,,False
+137,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+137,3,False,exec_error: KeyError: 'A1',
+137,4,True,,False
+138,0,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+138,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+138,2,False,exec_error: KeyError: 'crimes',
+138,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+138,4,False,exec_error: KeyError: 'date',
+139,0,False,exec_error: KeyError: 'type',
+139,1,False,exec_error: KeyError: 'OWNER',
+139,2,True,,False
+139,3,False,exec_error: KeyError: 'card_id',
+139,4,False,exec_error: KeyError: 'card_id',
+140,0,True,,True
+140,1,False,exec_error: KeyError: 'A1',
+140,2,True,,True
+140,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+140,4,True,,True
+141,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,2,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and str,
+141,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+142,0,True,,False
+142,1,False,exec_error: NameError: name 'houshold_payment_orders' is not defined,
+142,2,True,,False
+142,3,True,,False
+142,4,True,,False
+143,0,False,exec_error: KeyError: 'disp_id',
+143,1,False,exec_error: KeyError: 'account_id',
+143,2,False,exec_error: KeyError: 'disp_id',
+143,3,False,exec_error: KeyError: 'type',
+143,4,False,exec_error: KeyError: 'disp_id',
+144,0,False,exec_error: KeyError: 'account_id',
+144,1,False,exec_error: IndexingError: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).,
+144,2,False,exec_error: KeyError: 'account_id',
+144,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+144,4,False,exec_error: KeyError: 'disp_id',
+145,0,False,exec_error: KeyError: 'amount',
+145,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,2,False,exec_error: KeyError: 'account_id',
+145,3,False,exec_error: KeyError: 'date',
+145,4,False,exec_error: KeyError: 'k_symbol',
+146,0,False,exec_error: KeyError: 'account_id',
+146,1,False,exec_error: KeyError: 'client_id',
+146,2,False,exec_error: KeyError: 'disp_id',
+146,3,False,exec_error: KeyError: 'account_id',
+146,4,False,exec_error: KeyError: 'client_id',
+147,0,False,exec_error: KeyError: 'client_id',
+147,1,False,exec_error: KeyError: 'client_id',
+147,2,False,exec_error: KeyError: 'client_id',
+147,3,True,,False
+147,4,False,exec_error: KeyError: 'account_id',
+148,0,True,,True
+148,1,True,,False
+148,2,True,,False
+148,3,True,,False
+148,4,True,,True
+149,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+149,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+149,2,False,exec_error: KeyError: 'disp_id',
+149,3,False,exec_error: KeyError: 'account_id',
+149,4,,,
+150,0,False,exec_error: KeyError: 'A1',
+150,1,True,,False
+150,2,False,exec_error: NameError: name 'accounts' is not defined,
+150,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+150,4,True,,False
+151,0,True,,False
+151,1,False,"exec_error: ValueError: cannot insert account_id, already exists",
+151,2,True,,False
+151,3,True,,False
+151,4,True,,False
+152,0,False,"exec_error: TypeError: Boolean array expected for the condition, not int64",
+152,1,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+152,2,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+152,3,False,exec_error: UnboundLocalError: cannot access local variable 'district' where it is not associated with a value,
+152,4,False,exec_error: UnboundLocalError: cannot access local variable 'district' where it is not associated with a value,
+153,0,True,,False
+153,1,True,,False
+153,2,True,,False
+153,3,True,,False
+153,4,False,exec_error: KeyError: 'account_id',
+154,0,False,exec_error: KeyError: 'A1',
+154,1,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+154,2,True,,True
+154,3,True,,False
+154,4,True,,False
+155,0,False,exec_error: NameError: name 'cards' is not defined,
+155,1,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'card.csv',
+155,2,True,,False
+155,3,False,exec_error: ZeroDivisionError: division by zero,
+155,4,True,,False
+156,0,False,exec_error: KeyError: 'client_id',
+156,1,False,exec_error: KeyError: 'client_id',
+156,2,False,exec_error: KeyError: 'client_id',
+156,3,False,exec_error: KeyError: 'client_id',
+156,4,False,exec_error: KeyError: 'account_id',
+157,0,False,exec_error: UnboundLocalError: cannot access local variable 'account_df' where it is not associated with a value,
+157,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,2,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+157,3,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+157,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,0,False,exec_error: NameError: name 'orders' is not defined,
+158,1,True,,True
+158,2,True,,True
+158,3,False,exec_error: UnboundLocalError: cannot access local variable 'account_df' where it is not associated with a value,
+158,4,True,,True
+159,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+159,1,False,exec_error: KeyError: 'account_id',
+159,2,False,exec_error: KeyError: 'account_id',
+159,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+159,4,False,exec_error: KeyError: 'account_id',
+160,0,True,,False
+160,1,True,,False
+160,2,False,exec_error: KeyError: 'account_id',
+160,3,True,,False
+160,4,True,,False
+161,0,False,exec_error: KeyError: 'client_id',
+161,1,False,exec_error: KeyError: 'disp_id',
+161,2,False,exec_error: KeyError: 'disp_id',
+161,3,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+161,4,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+162,0,False,exec_error: KeyError: 'account_id',
+162,1,False,exec_error: KeyError: 'client_id',
+162,2,False,exec_error: KeyError: 'account_id',
+162,3,False,exec_error: KeyError: 'account_id',
+162,4,False,exec_timeout,
+163,0,False,exec_error: KeyError: 0,
+163,1,False,exec_error: KeyError: 'finished',
+163,2,False,exec_error: KeyError: 'problems',
+163,3,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+163,4,False,exec_error: KeyError: 'problems',
+164,0,False,"exec_error: KeyError: ""None of [Index(['client_id'], dtype='str')] are in the [columns]""",
+164,1,False,"exec_error: KeyError: ""['client_id'] not in index""",
+164,2,False,exec_error: NameError: name 'orders' is not defined,
+164,3,False,exec_error: KeyError: 'account_id',
+164,4,False,"exec_error: KeyError: ""['client_id', 'client_id_x', 'gender', 'birth_date'] not in index""",
+165,0,True,,False
+165,1,True,,True
+165,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+165,3,True,,False
+165,4,True,,False
+166,0,True,,False
+166,1,True,,False
+166,2,True,,True
+166,3,True,,False
+166,4,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'account.csv',
+167,0,False,exec_error: KeyError: 'card_id',
+167,1,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,2,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,3,False,exec_error: KeyError: 'client_id',
+167,4,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+168,0,False,exec_error: KeyError: 'account_id',
+168,1,False,exec_error: KeyError: 'client_id',
+168,2,False,exec_error: KeyError: 'account_id',
+168,3,False,exec_error: KeyError: 'account_id',
+168,4,False,exec_error: KeyError: 'account_id',
+169,0,False,exec_error: KeyError: 'client_id',
+169,1,False,exec_error: KeyError: 'date',
+169,2,False,exec_error: KeyError: 'account_id',
+169,3,False,exec_error: KeyError: 'client_id',
+169,4,False,exec_error: KeyError: 'client_id',
+170,0,True,,False
+170,1,True,,False
+170,2,True,,False
+170,3,False,exec_error: KeyError: 'account_id',
+170,4,True,,False
+171,0,False,exec_error: KeyError: 1996,
+171,1,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+171,2,True,,False
+171,3,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'district.csv',
+171,4,False,exec_error: KeyError: 'A2',
+172,0,True,,False
+172,1,True,,False
+172,2,False,"exec_error: ValueError: If using all scalar values, you must pass an index",
+172,3,False,exec_error: KeyError: 'account_id',
+172,4,True,,False
+173,0,True,,False
+173,1,False,exec_error: KeyError: 'k_symbol',
+173,2,True,,False
+173,3,False,exec_error: NameError: name 'df_disps' is not defined,
+173,4,False,exec_error: KeyError: 'type',
+174,0,True,,False
+174,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,2,False,exec_error: KeyError: 'account_id',
+174,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+175,0,True,,False
+175,1,False,exec_error: KeyError: 'disp_id',
+175,2,True,,False
+175,3,False,exec_error: KeyError: 'type_x',
+175,4,False,exec_error: KeyError: 'type_y',
+176,0,False,exec_error: KeyError: 'client_id',
+176,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+176,2,False,exec_error: KeyError: 'client_id',
+176,3,False,exec_error: KeyError: 'client_id',
+176,4,False,exec_error: KeyError: 'client_id',
+177,0,True,,False
+177,1,False,exec_error: KeyError: 'account_id',
+177,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+177,3,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'account.csv',
+177,4,False,exec_error: KeyError: 'account_id',
+178,0,False,exec_error: KeyError: 'disp_id',
+178,1,False,exec_error: KeyError: 'client_id',
+178,2,False,exec_error: KeyError: 'client_id',
+178,3,False,exec_error: KeyError: 'type',
+178,4,False,exec_error: KeyError: 'client_id',
+179,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+179,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+179,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+179,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+179,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+180,0,False,exec_error: AttributeError: 'Series' object has no attribute 'merge',
+180,1,True,,False
+180,2,False,exec_error: KeyError: 'account_id',
+180,3,False,exec_error: NameError: name 'df_distr' is not defined,
+180,4,True,,False
+181,0,False,exec_error: KeyError: 'client_id',
+181,1,False,exec_error: KeyError: 'client_id',
+181,2,False,exec_error: KeyError: 'client_id',
+181,3,True,,False
+181,4,False,exec_error: KeyError: 'client_id',
+182,0,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+182,1,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+182,2,False,exec_error: KeyError: 'client_id',
+182,3,False,exec_error: KeyError: 'account_id',
+182,4,False,exec_error: KeyError: 'account_id',
+183,0,True,,False
+183,1,True,,False
+183,2,True,,False
+183,3,True,,False
+183,4,True,,False
+184,0,False,exec_error: KeyError: 'disp_id',
+184,1,False,exec_error: KeyError: 'client_id',
+184,2,False,exec_error: KeyError: 'disp_id',
+184,3,False,exec_error: KeyError: 'client_id',
+184,4,False,exec_error: KeyError: 'type',
+185,0,False,exec_error: KeyError: 'client_id',
+185,1,False,exec_error: KeyError: 'account_id',
+185,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+185,3,False,exec_error: KeyError: 'client_id',
+185,4,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+186,0,False,exec_error: KeyError: 'client_id',
+186,1,False,exec_error: KeyError: 'client_id',
+186,2,False,exec_error: KeyError: 'A2',
+186,3,False,exec_error: KeyError: 'disp_id',
+186,4,False,exec_error: KeyError: 'account_id',
+187,0,False,exec_error: KeyError: 'disp_id',
+187,1,False,exec_error: KeyError: 'frequency',
+187,2,False,exec_error: KeyError: 'frequency',
+187,3,False,exec_error: KeyError: 'disp_id',
+187,4,False,exec_error: KeyError: 'disp_id',
+188,0,False,exec_error: KeyError: 'date',
+188,1,False,exec_error: KeyError: 'date',
+188,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+188,3,True,,True
+188,4,True,,False
+189,0,False,exec_error: KeyError: 'account_id',
+189,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+189,2,False,exec_error: KeyError: 'Column not found: amount',
+189,3,False,exec_error: ValueError: cannot convert float NaN to integer,
+189,4,False,exec_error: KeyError: 'amount',
+190,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+190,1,True,,False
+190,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+190,3,True,,False
+190,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+191,0,False,exec_error: KeyError: 'frequency',
+191,1,False,exec_error: KeyError: 'disp_id',
+191,2,True,,False
+191,3,True,,False
+191,4,True,,False
+192,0,False,exec_error: KeyError: 'Column not found: amount',
+192,1,False,exec_error: KeyError: 'Column not found: amount',
+192,2,False,exec_error: KeyError: 'Column not found: amount',
+192,3,False,exec_error: KeyError: 'Column not found: amount',
+192,4,False,exec_error: KeyError: 'status_x',
+193,0,True,,False
+193,1,False,exec_error: KeyError: 'account_id',
+193,2,False,exec_error: KeyError: 'client_id',
+193,3,False,exec_error: KeyError: 'client_id',
+193,4,False,exec_error: KeyError: 'client_id',
+194,0,False,exec_error: KeyError: 'client_id',
+194,1,False,exec_error: KeyError: 'account_id',
+194,2,False,exec_error: KeyError: 'disp_id',
+194,3,False,exec_error: KeyError: 'client_id',
+194,4,False,exec_error: KeyError: 'account_id',

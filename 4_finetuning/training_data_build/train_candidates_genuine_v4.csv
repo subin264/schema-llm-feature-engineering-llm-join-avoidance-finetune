@@ -1,0 +1,1625 @@
+db_id,question_id,question,hop_diameter,schema_text,prompt,code,n_merge,genuine_join
+superhero,719,"Among the superheroes with the super power of ""Super Strength"", how many of them have a height of over 200cm?",2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Among the superheroes with the super power of ""Super Strength"", how many of them have a height of over 200cm?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, superpower, hero_power):
+    merged = pd.merge(hero_power, superpower, left_on='power_id', right_on='id')
+    merged = pd.merge(merged, superhero, left_on='hero_id', right_on='id')
+    
+    strength_heroes = merged[merged['power_name'] == 'Super Strength']
+    
+    result = strength_heroes[strength_heroes['height_cm'] > 200]
+    
+    return result['hero_id'].nunique()",2,True
+superhero,723,"Among the superheroes with blue eyes, how many of them have the super power of ""Agility""?",3,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Among the superheroes with blue eyes, how many of them have the super power of ""Agility""?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, colour, superpower, hero_power):
+    # Merge superhero with colour to get eye colour names
+    df = pd.merge(superhero, colour, left_on='eye_colour_id', right_on='id', suffixes=('', '_colour'))
+    
+    # Filter for blue eyes
+    df = df[df['colour'] == 'Blue']
+    
+    # Merge with hero_power to get powers for these heroes
+    df = pd.merge(df, hero_power, left_on='id', right_on='hero_id')
+    
+    # Merge with superpower to get power names
+    df = pd.merge(df, superpower, left_on='power_id', right_on='id', suffixes=('', '_power'))
+    
+    # Filter for Agility power
+    df = df[df['power_name'] == 'Agility']
+    
+    # Count unique heroes with blue eyes and Agility power
+    result = df['hero_id'].nunique()
+    
+    return result",3,True
+superhero,724,Please list the superhero names of all the superheroes that have blue eyes and blond hair.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Please list the superhero names of all the superheroes that have blue eyes and blond hair.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_blue_eyed_blond_superheroes(superhero, colour):
+    # Prepare eye colour dataframe
+    eye_colour = colour.rename(columns={'id': 'eye_colour_id', 'colour': 'eye_colour'})
+    
+    # Prepare hair colour dataframe
+    hair_colour = colour.rename(columns={'id': 'hair_colour_id', 'colour': 'hair_colour'})
+    
+    # Merge superhero with eye colour
+    merged = pd.merge(superhero, eye_colour, on='eye_colour_id', how='inner')
+    
+    # Merge result with hair colour
+    merged = pd.merge(merged, hair_colour, on='hair_colour_id', how='inner')
+    
+    # Filter for blue eyes and blond hair
+    result = merged[
+        (merged['eye_colour'].str.lower() == 'blue') &
+        (merged['hair_colour'].str.lower() == 'blond')
+    ]
+    
+    return result['superhero_name']",2,True
+superhero,730,List the superheroes from Marvel Comics who have the super power of 'Super Strength'.,3,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: List the superheroes from Marvel Comics who have the super power of 'Super Strength'.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_marvel_super_strength_heroes(superhero, publisher, hero_power, superpower):
+    # Merge superhero with publisher to filter Marvel Comics
+    merged = pd.merge(superhero, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    marvel_heroes = merged[merged['publisher_name'] == 'Marvel Comics']
+
+    # Merge with hero_power to get power associations
+    merged = pd.merge(marvel_heroes, hero_power, left_on='id', right_on='hero_id', suffixes=('', '_hero_power'))
+
+    # Merge with superpower to filter for 'Super Strength'
+    merged = pd.merge(merged, superpower, left_on='power_id', right_on='id', suffixes=('', '_superpower'))
+
+    result = merged[merged['power_name'] == 'Super Strength']
+
+    return result[['superhero_name']].drop_duplicates()",3,True
+superhero,732,Which publisher published the slowest superhero?,3,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Which publisher published the slowest superhero?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_slowest_superhero_publisher(superhero, publisher, hero_attribute, attribute):
+    # Find the attribute id for ""Speed""
+    speed_attr = attribute[attribute['attribute_name'] == 'Speed']
+    
+    # Merge hero_attribute with the speed attribute to get only speed values
+    speed_values = pd.merge(hero_attribute, speed_attr, left_on='attribute_id', right_on='id')
+    
+    # Merge with superhero table to get hero details
+    hero_speed = pd.merge(speed_values, superhero, left_on='hero_id', right_on='id')
+    
+    # Merge with publisher table to get publisher names
+    hero_speed_publisher = pd.merge(hero_speed, publisher, left_on='publisher_id', right_on='id')
+    
+    # Find the row with the minimum speed (slowest superhero)
+    slowest_hero = hero_speed_publisher.loc[hero_speed_publisher['attribute_value'].idxmin()]
+    
+    return slowest_hero['publisher_name']",3,True
+superhero,733,How many gold-eyed superheroes did Marvel Comics publish?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: How many gold-eyed superheroes did Marvel Comics publish?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def gold_eyed_marvel_superheroes_count(superhero, colour, publisher):
+    # Merge superhero with colour on eye_colour_id
+    merged = pd.merge(superhero, colour, left_on='eye_colour_id', right_on='id', suffixes=('', '_colour'))
+    
+    # Merge with publisher on publisher_id
+    merged = pd.merge(merged, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    
+    # Filter for gold eyes and Marvel Comics
+    result = merged[(merged['colour'] == 'Gold') & (merged['publisher_name'] == 'Marvel Comics')]
+    
+    return result.shape[0]",2,True
+superhero,736,Who is the dumbest superhero?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Who is the dumbest superhero?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def find_dumbest_superhero(superhero, attribute, hero_attribute):
+    # Merge hero_attribute with attribute table to get attribute names
+    merged = pd.merge(hero_attribute, attribute, left_on='attribute_id', right_on='id', suffixes=('', '_attr'))
+    
+    # Filter for Intelligence attribute
+    intelligence_df = merged[merged['attribute_name'] == 'Intelligence']
+    
+    # Merge with superhero table to get superhero names
+    intelligence_df = pd.merge(intelligence_df, superhero, left_on='hero_id', right_on='id', suffixes=('', '_hero'))
+    
+    # Find the row with the minimum intelligence value
+    dumbest = intelligence_df.loc[intelligence_df['attribute_value'].idxmin()]
+    
+    return dumbest['superhero_name']",2,True
+superhero,739,What are the names of the superheroes with the power of death touch?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: What are the names of the superheroes with the power of death touch?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","def get_death_touch_heroes(superhero, superpower, hero_power):
+    # Filter the superpower table for 'Death Touch' using merge
+    death_touch_power = superpower[superpower['power_name'] == 'Death Touch']
+    
+    # Merge hero_power with death_touch_power on power_id
+    merged_hero_power = pd.merge(hero_power, death_touch_power, left_on='power_id', right_on='id')
+    
+    # Merge the result with superhero table on hero_id
+    result = pd.merge(merged_hero_power, superhero, left_on='hero_id', right_on='id')
+    
+    # Select the superhero names
+    hero_names = result[['superhero_name']].drop_duplicates()
+    
+    return hero_names",2,True
+superhero,740,How many female superheroes have a strength value of 100?,3,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: How many female superheroes have a strength value of 100?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, gender, attribute, hero_attribute):
+    # Merge superhero with gender to identify female superheroes
+    merged = pd.merge(superhero, gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    merged = merged[merged['gender'] == 'Female']
+    
+    # Merge with hero_attribute to get attribute values
+    merged = pd.merge(merged, hero_attribute, left_on='id', right_on='hero_id')
+    
+    # Merge with attribute to filter for 'Strength'
+    merged = pd.merge(merged, attribute, left_on='attribute_id', right_on='id', suffixes=('', '_attr'))
+    
+    # Filter for Strength attribute with value 100
+    result = merged[(merged['attribute_name'] == 'Strength') & (merged['attribute_value'] == 100)]
+    
+    return result['id'].nunique()",3,True
+superhero,769,Which superhero has the most durability published by Dark Horse Comics?,3,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Which superhero has the most durability published by Dark Horse Comics?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def most_durability_hero_dark_horse(superhero, publisher, attribute, hero_attribute):
+    # Merge superhero with publisher to get publisher names
+    merged = pd.merge(superhero, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    
+    # Filter for Dark Horse Comics using merge instead of isin/filtering
+    dark_horse = pd.merge(
+        merged,
+        publisher[publisher['publisher_name'] == 'Dark Horse Comics'],
+        left_on='publisher_id',
+        right_on='id',
+        suffixes=('', '_dh')
+    )
+    
+    # Merge with hero_attribute to get attribute values
+    hero_attr_merged = pd.merge(dark_horse, hero_attribute, left_on='id', right_on='hero_id')
+    
+    # Merge with attribute table to filter for 'Durability'
+    durability_merged = pd.merge(
+        hero_attr_merged,
+        attribute[attribute['attribute_name'] == 'Durability'],
+        left_on='attribute_id',
+        right_on='id',
+        suffixes=('', '_attr')
+    )
+    
+    # Find the hero with the maximum durability value
+    result = durability_merged.loc[durability_merged['attribute_value'].idxmax()]
+    
+    return result['superhero_name']",4,True
+superhero,771,List the name of superheroes with flight power.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: List the name of superheroes with flight power.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_superheroes_with_flight_power(superhero, superpower, hero_power):
+    # Filter the superpower table for ""Flight"" power
+    flight_power = superpower[superpower['power_name'] == 'Flight']
+    
+    # Merge hero_power with flight_power to get heroes that have flight power
+    hero_flight = pd.merge(hero_power, flight_power, left_on='power_id', right_on='id')
+    
+    # Merge with superhero table to get the names of these heroes
+    result = pd.merge(hero_flight, superhero, left_on='hero_id', right_on='id')
+    
+    # Select only the superhero_name column
+    result = result[['superhero_name']].drop_duplicates()
+    
+    return result",2,True
+superhero,775,What is the percentage of blue female superheroes among all female superheroes?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: What is the percentage of blue female superheroes among all female superheroes?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def percentage_blue_female_superheroes(superhero, gender, colour):
+    # Merge superhero with gender table
+    merged = pd.merge(superhero, gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    
+    # Filter for female superheroes
+    female_heroes = merged[merged['gender'] == 'Female']
+    
+    # Merge with colour table on skin_colour_id to get skin colour name
+    female_heroes_colour = pd.merge(female_heroes, colour, left_on='skin_colour_id', right_on='id', suffixes=('', '_colour'))
+    
+    # Count total female superheroes
+    total_female = female_heroes.shape[0]
+    
+    # Count blue-skinned female superheroes
+    blue_female = female_heroes_colour[female_heroes_colour['colour'] == 'Blue'].shape[0]
+    
+    # Compute percentage
+    percentage = (blue_female / total_female) * 100 if total_female > 0 else 0
+    
+    return percentage",2,True
+superhero,778,Provide superheroes' names who have the adaptation power.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Provide superheroes' names who have the adaptation power.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_superheroes_with_adaptation_power(superhero, superpower, hero_power):
+    # Filter the superpower table for 'Adaptation' power
+    adaptation_power = superpower[superpower['power_name'] == 'Adaptation']
+    
+    # Merge hero_power with adaptation_power to get hero_ids with this power
+    hero_power_merged = pd.merge(hero_power, adaptation_power, left_on='power_id', right_on='id')
+    
+    # Merge with superhero table to get superhero names
+    result = pd.merge(hero_power_merged, superhero, left_on='hero_id', right_on='id')
+    
+    return result['superhero_name']",2,True
+superhero,788,How many percent of female heroes were published by Marvel Comics?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: How many percent of female heroes were published by Marvel Comics?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, gender, publisher):
+    # Merge superhero with gender table
+    merged = pd.merge(superhero, gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    
+    # Merge with publisher table
+    merged = pd.merge(merged, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    
+    # Filter female heroes
+    female_heroes = merged[merged['gender'] == 'Female']
+    
+    total_female = len(female_heroes)
+    
+    # Filter female heroes published by Marvel Comics
+    female_marvel = female_heroes[female_heroes['publisher_name'] == 'Marvel Comics']
+    
+    count_female_marvel = len(female_marvel)
+    
+    if total_female == 0:
+        return 0.0
+    
+    percentage = (count_female_marvel / total_female) * 100
+    
+    return percentage",2,True
+superhero,807,What is the superpowers of the superhero has Helen Parr as their full name?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: What is the superpowers of the superhero has Helen Parr as their full name?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_superpowers_of_helen_parr(superhero, hero_power, superpower):
+    # Merge superhero with hero_power on hero id
+    merged = pd.merge(superhero, hero_power, left_on='id', right_on='hero_id')
+    
+    # Merge the result with superpower on power id
+    merged = pd.merge(merged, superpower, left_on='power_id', right_on='id', suffixes=('_hero', '_power'))
+    
+    # Filter for the superhero with full_name 'Helen Parr'
+    result = merged[merged['full_name'] == 'Helen Parr']
+    
+    # Return the list of superpowers
+    return result['power_name'].tolist()",2,True
+superhero,810,What is the race of the superhero with maximum attribute value?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: What is the race of the superhero with maximum attribute value?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_race_of_max_attribute_hero(superhero, race, hero_attribute):
+    # Merge hero_attribute with superhero to get race_id for each hero attribute record
+    merged = pd.merge(hero_attribute, superhero, left_on='hero_id', right_on='id')
+    
+    # Merge with race table to get race name
+    merged = pd.merge(merged, race, left_on='race_id', right_on='id')
+    
+    # Find the row with maximum attribute_value
+    max_row = merged.loc[merged['attribute_value'].idxmax()]
+    
+    # Return the race of that superhero
+    return max_row['race']",2,True
+superhero,813,Calculate the average attribute value of all neutral superheroes.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Calculate the average attribute value of all neutral superheroes.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_avg_attribute_value_for_neutral_heroes(superhero, alignment, hero_attribute):
+    # Merge superhero with alignment to get alignment names
+    merged = pd.merge(superhero, alignment, left_on='alignment_id', right_on='id', suffixes=('', '_alignment'))
+    
+    # Filter for neutral alignment via merge condition (join then select rows where alignment == 'Neutral')
+    neutral_heroes = merged[merged['alignment'] == 'Neutral']
+    
+    # Merge neutral heroes with hero_attribute to get attribute values
+    neutral_hero_attributes = pd.merge(neutral_heroes, hero_attribute, left_on='id', right_on='hero_id')
+    
+    # Compute the average attribute value
+    avg_attribute_value = neutral_hero_attributes['attribute_value'].mean()
+    
+    return avg_attribute_value",2,True
+superhero,814,List the skin colour of the superheroes with 100 attribute value.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: List the skin colour of the superheroes with 100 attribute value.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, colour, hero_attribute):
+    # Filter hero_attribute for attribute_value = 100
+    filtered_attr = hero_attribute[hero_attribute['attribute_value'] == 100]
+    
+    # Join with superhero to get skin_colour_id
+    merged = pd.merge(filtered_attr, superhero, left_on='hero_id', right_on='id')
+    
+    # Join with colour to get skin colour name
+    result = pd.merge(merged, colour, left_on='skin_colour_id', right_on='id', suffixes=('_hero', '_colour'))
+    
+    return result[['colour']].drop_duplicates()",2,True
+superhero,815,Count the good female superheroes.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Count the good female superheroes.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, alignment, gender):
+    merged = superhero.merge(alignment, left_on='alignment_id', right_on='id', suffixes=('', '_alignment'))
+    merged = merged.merge(gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    
+    result = merged[(merged['alignment'] == 'Good') & (merged['gender'] == 'Female')]
+    
+    count = result.shape[0]
+    return count",2,True
+superhero,818,"Among the bad superheroes, what is the percentage of female superheroes?",2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Among the bad superheroes, what is the percentage of female superheroes?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, alignment, gender):
+    # Merge superhero with alignment
+    merged = pd.merge(superhero, alignment, left_on='alignment_id', right_on='id', suffixes=('', '_alignment'))
+    
+    # Merge with gender
+    merged = pd.merge(merged, gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    
+    # Filter for bad superheroes
+    bad_heroes = merged[merged['alignment'] == 'Bad']
+    
+    # Calculate percentage of female superheroes among bad ones
+    total_bad = len(bad_heroes)
+    female_bad = len(bad_heroes[bad_heroes['gender'] == 'Female'])
+    
+    percentage = (female_bad / total_bad) * 100 if total_bad > 0 else 0
+    
+    return percentage",2,True
+superhero,822,How many green-skinned villains are there in the superhero universe?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: How many green-skinned villains are there in the superhero universe?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_green_skinned_villains(superhero, colour, alignment):
+    # Merge superhero with colour on skin_colour_id
+    merged = pd.merge(superhero, colour, left_on='skin_colour_id', right_on='id', suffixes=('', '_colour'))
+    
+    # Merge result with alignment on alignment_id
+    merged = pd.merge(merged, alignment, left_on='alignment_id', right_on='id', suffixes=('', '_alignment'))
+    
+    # Filter for green skin colour and villain alignment
+    filtered = merged[(merged['colour'].str.lower() == 'green') & 
+                       (merged['alignment'].str.lower() == 'bad')]
+    
+    return filtered.shape[0]",2,True
+superhero,823,How many female superheroes are in Marvel Comics?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: How many female superheroes are in Marvel Comics?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, gender, publisher):
+    merged = superhero.merge(gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    merged = merged.merge(publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    
+    result = merged.merge(
+        pd.DataFrame({'gender': ['Female']}), on='gender'
+    ).merge(
+        pd.DataFrame({'publisher_name': ['Marvel Comics']}), on='publisher_name'
+    )
+    
+    return result.shape[0]",4,True
+superhero,824,Identify superheroes who can control wind and list their names in alphabetical order.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Identify superheroes who can control wind and list their names in alphabetical order.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_wind_control_heroes(superhero, superpower, hero_power):
+    # Filter superpower table for 'Wind Control' using merge
+    power_filter = pd.DataFrame({'power_name': ['Wind Control']})
+    matched_power = pd.merge(superpower, power_filter, on='power_name', how='inner')
+    
+    # Join with hero_power to get hero_ids that have this power
+    heroes_with_power = pd.merge(hero_power, matched_power, left_on='power_id', right_on='id', how='inner')
+    
+    # Join with superhero table to get superhero names
+    result = pd.merge(heroes_with_power, superhero, left_on='hero_id', right_on='id', how='inner')
+    
+    # Select relevant column and sort alphabetically
+    result = result[['superhero_name']].sort_values(by='superhero_name').reset_index(drop=True)
+    
+    return result",3,True
+superhero,827,What is the average height of a non-human superhero in Dark Horse Comics?,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: What is the average height of a non-human superhero in Dark Horse Comics?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, publisher, race):
+    # Merge superhero with publisher to filter by Dark Horse Comics
+    merged = pd.merge(superhero, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    merged = merged[merged['publisher_name'] == 'Dark Horse Comics']
+    
+    # Merge with race to filter out humans
+    merged = pd.merge(merged, race, left_on='race_id', right_on='id', suffixes=('', '_race'))
+    merged = merged[merged['race'] != 'Human']
+    
+    # Compute average height
+    avg_height = merged['height_cm'].mean()
+    
+    return avg_height",2,True
+superhero,828,Count the fastest superheroes.,2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Count the fastest superheroes.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","def count_fastest_superheroes(superhero, attribute, hero_attribute):
+    # Merge hero_attribute with attribute to identify the ""Speed"" attribute
+    merged = pd.merge(hero_attribute, attribute, left_on='attribute_id', right_on='id')
+    
+    # Filter only the Speed attribute rows
+    speed_df = merged[merged['attribute_name'] == 'Speed']
+    
+    # Find the maximum speed value
+    max_speed = speed_df['attribute_value'].max()
+    
+    # Get heroes who have this maximum speed value
+    fastest_heroes = speed_df[speed_df['attribute_value'] == max_speed]
+    
+    # Merge with superhero table to ensure valid hero records (join step)
+    fastest_heroes_full = pd.merge(fastest_heroes, superhero, left_on='hero_id', right_on='id')
+    
+    # Count the number of fastest superheroes
+    count_fastest = fastest_heroes_full['hero_id'].nunique()
+    
+    return count_fastest",2,True
+superhero,834,"Among all superheroes created by George Lucas, identify the percentage of female superheroes.",2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Among all superheroes created by George Lucas, identify the percentage of female superheroes.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(superhero, publisher, gender):
+    # Merge superhero with publisher to filter by George Lucas
+    merged = pd.merge(superhero, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    merged = merged[merged['publisher_name'] == 'George Lucas']
+    
+    # Merge with gender table
+    merged = pd.merge(merged, gender, left_on='gender_id', right_on='id', suffixes=('', '_gender'))
+    
+    total_count = len(merged)
+    female_count = len(merged[merged['gender'] == 'Female'])
+    
+    percentage_female = (female_count / total_count) * 100 if total_count > 0 else 0
+    
+    return percentage_female",2,True
+superhero,835,"Among all superheroes in Marvel Comics, identify the percentage of 'good' superheroes.",2,"- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+","You are working on a feature engineering task for a superhero analysis model.
+
+Database schema:
+- alignment(id, alignment)
+- attribute(id, attribute_name)
+- colour(id, colour)
+- gender(id, gender)
+- publisher(id, publisher_name)
+- race(id, race)
+- superhero(id, superhero_name, full_name, gender_id, eye_colour_id, hair_colour_id, skin_colour_id, race_id, publisher_id, alignment_id, height_cm, weight_kg)
+- hero_attribute(hero_id, attribute_id, attribute_value)
+- superpower(id, power_name)
+- hero_power(hero_id, power_id)
+
+
+Question: Among all superheroes in Marvel Comics, identify the percentage of 'good' superheroes.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_marvel_good_percentage(superhero, publisher, alignment):
+    # Merge superhero with publisher to filter Marvel Comics heroes
+    merged = pd.merge(superhero, publisher, left_on='publisher_id', right_on='id', suffixes=('', '_publisher'))
+    marvel_heroes = merged[merged['publisher_name'] == 'Marvel Comics']
+
+    # Merge with alignment to get alignment names
+    marvel_heroes = pd.merge(marvel_heroes, alignment, left_on='alignment_id', right_on='id', suffixes=('', '_alignment'))
+
+    # Calculate total Marvel heroes
+    total_marvel = marvel_heroes.shape[0]
+
+    # Calculate number of 'good' Marvel heroes
+    good_marvel = marvel_heroes[marvel_heroes['alignment'] == 'Good'].shape[0]
+
+    # Compute percentage
+    percentage_good = (good_marvel / total_marvel) * 100 if total_marvel > 0 else 0
+
+    return percentage_good",2,True
+student_club,1316,"Please list the phone numbers of the students from the Student_Club that has attended the event ""Women's Soccer"".",2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: Please list the phone numbers of the students from the Student_Club that has attended the event ""Women's Soccer"".
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_phone_numbers_womens_soccer(event, attendance, member):
+    # Filter event to get the ""Women's Soccer"" event(s)
+    soccer_event = event[event['event_name'] == ""Women's Soccer""]
+    
+    # Merge with attendance to find members who attended
+    merged = pd.merge(soccer_event, attendance, left_on='event_id', right_on='link_to_event')
+    
+    # Merge with member to get phone numbers
+    result = pd.merge(merged, member, left_on='link_to_member', right_on='member_id')
+    
+    return result['phone']",2,True
+student_club,1320,Please list the event names of all the events attended by Maya Mclean.,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: Please list the event names of all the events attended by Maya Mclean.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_events_attended_by_maya_mclean(event, member, attendance):
+    # Filter member for Maya Mclean using merge with a temporary DataFrame
+    target = pd.DataFrame({'first_name': ['Maya'], 'last_name': ['Mclean']})
+    
+    maya_member = pd.merge(member, target, on=['first_name', 'last_name'], how='inner')
+    
+    # Merge with attendance on member_id
+    maya_attendance = pd.merge(
+        maya_member, attendance,
+        left_on='member_id', right_on='link_to_member',
+        how='inner'
+    )
+    
+    # Merge with event to get event names
+    maya_events = pd.merge(
+        maya_attendance, event,
+        left_on='link_to_event', right_on='event_id',
+        how='inner'
+    )
+    
+    return maya_events['event_name'].tolist()",3,True
+student_club,1321,How many events of the Student_Club did Sacha Harrison attend in 2019?,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: How many events of the Student_Club did Sacha Harrison attend in 2019?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def count_events_attended(member, attendance, event):
+    # Filter member for Sacha Harrison
+    target_member = member[(member['first_name'] == 'Sacha') & (member['last_name'] == 'Harrison')]
+    
+    # Merge attendance with the target member on member_id
+    merged = pd.merge(attendance, target_member, left_on='link_to_member', right_on='member_id')
+    
+    # Merge with event table
+    merged = pd.merge(merged, event, left_on='link_to_event', right_on='event_id')
+    
+    # Convert event_date to datetime
+    merged['event_date'] = pd.to_datetime(merged['event_date'])
+    
+    # Filter for year 2019
+    merged_2019 = merged[merged['event_date'].dt.year == 2019]
+    
+    # Count distinct events attended
+    count = merged_2019['event_id'].nunique()
+    
+    return count",2,True
+student_club,1386,What is the total expense for the Yearly Kickoff?,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: What is the total expense for the Yearly Kickoff?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(event, budget, expense):
+    # Filter event for ""Yearly Kickoff"" using merge instead of isin/manual filtering
+    target_event = pd.DataFrame({'event_name': ['Yearly Kickoff']})
+    
+    event_filtered = pd.merge(event, target_event, on='event_name', how='inner')
+    
+    # Join event with budget on event_id = link_to_event
+    event_budget = pd.merge(
+        event_filtered,
+        budget,
+        left_on='event_id',
+        right_on='link_to_event',
+        how='inner'
+    )
+    
+    # Join with expense on budget_id = link_to_budget
+    event_budget_expense = pd.merge(
+        event_budget,
+        expense,
+        left_on='budget_id',
+        right_on='link_to_budget',
+        how='inner'
+    )
+    
+    # Compute total expense
+    total_expense = event_budget_expense['cost'].sum()
+    
+    return total_expense",3,True
+student_club,1390,"Based on the total cost for all event, what is the percentage of cost for Yearly Kickoff event?",2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: Based on the total cost for all event, what is the percentage of cost for Yearly Kickoff event?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def yearly_kickoff_cost_percentage(event, budget, expense):
+    # Merge expense with budget to get event link
+    exp_budget = pd.merge(expense, budget, left_on='link_to_budget', right_on='budget_id', how='inner')
+    
+    # Merge with event to get event names
+    exp_event = pd.merge(exp_budget, event, left_on='link_to_event', right_on='event_id', how='inner')
+    
+    # Total cost per event
+    cost_per_event = exp_event.groupby('event_name')['cost'].sum().reset_index()
+    
+    # Total cost across all events
+    total_cost = cost_per_event['cost'].sum()
+    
+    # Cost for Yearly Kickoff event
+    kickoff_cost = cost_per_event.loc[
+        cost_per_event['event_name'] == 'Yearly Kickoff', 'cost'
+    ].sum()
+    
+    # Percentage calculation
+    percentage = (kickoff_cost / total_cost) * 100 if total_cost != 0 else 0
+    
+    return percentage",2,True
+student_club,1401,Indicate the cost of posters for 'September Speaker' event.,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: Indicate the cost of posters for 'September Speaker' event.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_poster_cost_for_september_speaker(event, budget, expense):
+    # Join event with budget on event_id
+    event_budget = pd.merge(
+        event, budget,
+        left_on='event_id', right_on='link_to_event',
+        how='inner'
+    )
+    
+    # Join the result with expense on budget_id
+    event_budget_expense = pd.merge(
+        event_budget, expense,
+        left_on='budget_id', right_on='link_to_budget',
+        how='inner'
+    )
+    
+    # Filter for the specific event and poster-related expense
+    result = event_budget_expense[
+        (event_budget_expense['event_name'] == 'September Speaker') &
+        (event_budget_expense['expense_description'].str.contains('poster', case=False, na=False))
+    ]
+    
+    poster_cost = result['cost'].sum()
+    
+    return poster_cost",2,True
+student_club,1448,Find the name and date of events with expenses for pizza that were more than fifty dollars but less than a hundred dollars.,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: Find the name and date of events with expenses for pizza that were more than fifty dollars but less than a hundred dollars.
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def compute_feature(event, budget, expense):
+    # Filter expenses for pizza with cost > 50 and < 100
+    pizza_expenses = expense[
+        (expense['expense_description'].str.contains('pizza', case=False, na=False)) &
+        (expense['cost'] > 50) &
+        (expense['cost'] < 100)
+    ]
+
+    # Join expenses with budget on link_to_budget = budget_id
+    merged = pd.merge(
+        pizza_expenses,
+        budget,
+        left_on='link_to_budget',
+        right_on='budget_id',
+        how='inner'
+    )
+
+    # Join with event on link_to_event = event_id
+    result = pd.merge(
+        merged,
+        event,
+        left_on='link_to_event',
+        right_on='event_id',
+        how='inner'
+    )
+
+    return result[['event_name', 'event_date']].drop_duplicates()",2,True
+student_club,1449,What is the name and major of members who had to spend more than a hundred dollars on an expense?,2,"- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+","You are working on a feature engineering task for a student club analysis model.
+
+Database schema:
+- event(event_id, event_name, event_date, type, notes, location, status)
+- major(major_id, major_name, department, college)
+- zip_code(zip_code, type, city, county, state, short_state)
+- attendance(link_to_event, link_to_member)
+- budget(budget_id, category, spent, remaining, amount, event_status, link_to_event)
+- expense(expense_id, expense_description, expense_date, cost, approved, link_to_member, link_to_budget)
+- income(income_id, date_received, amount, source, notes, link_to_member)
+- member(member_id, first_name, last_name, email, position, t_shirt_size, phone, zip, link_to_major)
+
+
+Question: What is the name and major of members who had to spend more than a hundred dollars on an expense?
+
+Write a Python function using pandas that computes a feature answering this question.
+Assume the tables are already loaded as pandas DataFrames with the same names as above.
+Only output the Python code, no explanation.","import pandas as pd
+
+def get_members_with_expensive_expenses(member, major, expense):
+    # Filter expenses greater than $100
+    high_expenses = expense[expense['cost'] > 100]
+
+    # Merge expenses with members
+    merged = pd.merge(high_expenses, member, left_on='link_to_member', right_on='member_id')
+
+    # Merge with major table to get major name
+    merged = pd.merge(merged, major, left_on='link_to_major', right_on='major_id')
+
+    # Select relevant columns and drop duplicates
+    result = merged[['first_name', 'last_name', 'major_name']].drop_duplicates()
+
+    return result",2,True

@@ -1,0 +1,535 @@
+question_id,repeat_idx,exec_ok,err,value_match
+89,0,True,,False
+89,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+89,2,True,,False
+89,3,False,exec_error: KeyError: 'A1',
+89,4,False,exec_error: KeyError: 'A1',
+90,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+90,1,True,,False
+90,2,False,exec_error: KeyError: 'A1',
+90,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+90,4,False,exec_error: KeyError: 'A1',
+91,0,False,exec_error: KeyError: 'year',
+91,1,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+91,2,False,exec_error: KeyError: 'A1',
+91,3,False,exec_error: KeyError: 'A2',
+91,4,False,exec_error: KeyError: 'A1',
+92,0,False,exec_error: KeyError: 'salary',
+92,1,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+92,2,False,exec_error: KeyError: 'Column not found: salary',
+92,3,False,exec_error: KeyError: 'Column not found: salary',
+92,4,False,exec_error: KeyError: 'Column not found: salary',
+93,0,False,exec_error: KeyError: 'A1',
+93,1,False,exec_error: KeyError: 'Column not found: A1',
+93,2,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+93,3,True,,False
+93,4,False,exec_error: KeyError: 'A1',
+94,0,False,exec_error: KeyError: 'Column not found: A1',
+94,1,False,exec_error: KeyError: 'Column not found: A1',
+94,2,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+94,3,False,exec_error: KeyError: 'Column not found: A1',
+94,4,False,exec_error: KeyError: 'Column not found: salary',
+95,0,False,exec_error: KeyError: 'client_id',
+95,1,False,exec_error: KeyError: 'Column not found: salary',
+95,2,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+95,3,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+95,4,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+96,0,True,,False
+96,1,False,exec_error: KeyError: 'type',
+96,2,True,,False
+96,3,True,,False
+96,4,True,,False
+97,0,True,,False
+97,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+97,2,True,,False
+97,3,True,,False
+97,4,True,,False
+98,0,False,"exec_error: KeyError: ""['district_id', 'frequency'] not in index""",
+98,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,2,False,"exec_error: KeyError: ""['date'] not in index""",
+98,3,False,"exec_error: KeyError: ""['amount_x', 'duration_x', 'payments_x', 'status_x'] not in index""",
+98,4,False,"exec_error: KeyError: ""['district_id', 'frequency'] not in index""",
+99,0,True,,False
+99,1,True,,False
+99,2,False,"exec_error: TypeError: Addition/subtraction of integers and integer-arrays with DatetimeArray is no longer supported.  Instead of adding/subtracting `n`, use `n * obj.freq`",
+99,3,False,exec_error: KeyError: 'date',
+99,4,False,exec_error: TypeError: Invalid comparison between dtype=timedelta64[us] and DateOffset,
+100,0,True,,False
+100,1,False,exec_error: NameError: name 'clients' is not defined,
+100,2,True,,False
+100,3,False,exec_error: NameError: name 'clients' is not defined,
+100,4,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+101,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,1,True,,False
+101,2,True,,False
+101,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,0,True,,True
+102,1,True,,True
+102,2,True,,False
+102,3,True,,False
+102,4,True,,True
+103,0,False,"exec_error: ValueError: to assemble mappings requires at least that [year, month, day] be specified: [day,month,year] is missing",
+103,1,False,exec_error: KeyError: 'client_id',
+103,2,False,"exec_error: TypeError: Cannot convert input [      account_id  district_id         frequency       date
+0              1           18  POPLATEK MESICNE 1995-03-24
+1         ",
+103,3,False,exec_error: KeyError: 'client_id',
+103,4,False,exec_error: KeyError: 'client_id',
+104,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+104,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+104,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+104,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+104,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+105,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+105,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+105,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+105,3,True,,False
+105,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+106,4,False,"exec_error: ValueError: to assemble mappings requires at least that [year, month, day] be specified: [day,month,year] is missing",
+107,0,False,exec_error: KeyError: 'Column not found: A1',
+107,1,False,exec_error: KeyError: 'A1',
+107,2,False,exec_error: KeyError: 'Column not found: A1',
+107,3,False,exec_error: KeyError: 'Column not found: A1',
+107,4,False,exec_error: KeyError: 'Column not found: A1',
+108,0,True,,False
+108,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+108,2,False,exec_error: KeyError: 'amount',
+108,3,False,exec_error: KeyError: 'trans_id',
+108,4,True,,False
+109,0,False,exec_error: NameError: name 'loan_data' is not defined,
+109,1,False,exec_error: KeyError: 'branch',
+109,2,False,exec_error: KeyError: 'A1',
+109,3,False,exec_error: KeyError: 'district_id',
+109,4,True,,False
+110,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+110,1,False,"exec_error: KeyError: ""None of [Index([1418, 3711, 4103, 4471], dtype='int64')] are in the [columns]""",
+110,2,True,,False
+110,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+110,4,True,,False
+111,0,True,,True
+111,1,True,,True
+111,2,True,,True
+111,3,True,,True
+111,4,True,,True
+112,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+112,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+112,2,True,,False
+112,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+112,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+113,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+113,1,False,exec_error: KeyError: 'date',
+113,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+113,3,False,exec_error: NameError: name 'loan_data' is not defined,
+113,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+114,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+114,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+114,3,False,exec_error: KeyError: 'A1',
+114,4,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+115,0,False,exec_error: KeyError: 'A1',
+115,1,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+115,2,False,exec_error: KeyError: 'A1',
+115,3,True,,False
+115,4,False,exec_error: KeyError: 'A1',
+116,0,True,,False
+116,1,True,,False
+116,2,False,exec_error: KeyError: 'client_id',
+116,3,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+116,4,False,exec_error: KeyError: 'client_id',
+117,0,True,,False
+117,1,True,,False
+117,2,True,,False
+117,3,True,,False
+117,4,True,,False
+118,0,True,,False
+118,1,False,exec_error: KeyError: 'amount',
+118,2,True,,False
+118,3,True,,False
+118,4,True,,False
+119,0,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+119,1,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+119,2,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+119,3,False,exec_error: ImportError: Using URI string without version '2.0.36' or newer of 'sqlalchemy' installed.,
+119,4,False,exec_error: KeyError: 'statement_date',
+120,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+120,1,True,,False
+120,2,False,exec_error: KeyError: 'A1',
+120,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+120,4,True,,False
+121,0,True,,True
+121,1,True,,True
+121,2,True,,False
+121,3,False,exec_error: KeyError: 'A2',
+121,4,True,,False
+122,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+122,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+122,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+122,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+122,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+123,0,True,,False
+123,1,True,,False
+123,2,True,,False
+123,3,True,,False
+123,4,True,,False
+124,0,False,exec_error: KeyError: 'Column not found: salary',
+124,1,True,,False
+124,2,False,exec_error: KeyError: 'Column not found: A1',
+124,3,True,,False
+124,4,False,exec_error: KeyError: 'district',
+125,0,False,exec_error: KeyError: 'date',
+125,1,True,,False
+125,2,False,"exec_error: KeyError: ""['A1'] not in index""",
+125,3,False,"exec_error: KeyError: ""['district', 'state'] not in index""",
+125,4,False,exec_error: KeyError: 'client_id',
+126,0,True,,True
+126,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,2,True,,True
+126,3,True,,True
+126,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+127,0,True,,False
+127,1,True,,False
+127,2,True,,False
+127,3,True,,False
+127,4,True,,False
+128,0,True,,False
+128,1,False,"exec_error: TypeError: cannot do positional indexing on Index with these indexers [      account_id  district_id         frequency       date
+0              1           18  ",
+128,2,False,"exec_error: TypeError: cannot do positional indexing on RangeIndex with these indexers [      account_id  district_id         frequency       date
+0              1          ",
+128,3,True,,False
+128,4,True,,False
+129,0,False,"exec_error: KeyError: ""['A2'] not in index""",
+129,1,False,exec_error: KeyError: 'district_id',
+129,2,True,,False
+129,3,True,,False
+129,4,False,exec_error: KeyError: 'A2',
+130,0,True,,False
+130,1,True,,False
+130,2,False,exec_error: KeyError: 'type',
+130,3,True,,False
+130,4,True,,False
+131,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,1,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,4,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+132,0,True,,False
+132,1,False,exec_error: KeyError: 'client_id',
+132,2,False,exec_error: KeyError: 'client_id',
+132,3,False,exec_error: KeyError: 'client_id',
+132,4,True,,False
+133,0,False,exec_error: KeyError: 'A2',
+133,1,False,exec_error: KeyError: 'A1',
+133,2,False,exec_error: KeyError: 'A1',
+133,3,False,exec_error: NameError: name 'loan_status' is not defined,
+133,4,False,exec_error: KeyError: 'year',
+134,0,True,,False
+134,1,True,,False
+134,2,True,,False
+134,3,True,,True
+134,4,False,exec_error: KeyError: 'A1',
+135,0,True,,False
+135,1,True,,False
+135,2,True,,False
+135,3,True,,False
+135,4,True,,False
+136,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+136,1,True,,False
+136,2,True,,False
+136,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+136,4,True,,False
+137,0,False,exec_error: KeyError: 'status',
+137,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+137,2,True,,False
+137,3,False,exec_error: KeyError: 'A1',
+137,4,True,,False
+138,0,False,exec_error: NameError: name 'crime_data' is not defined,
+138,1,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'path_to_crime_data.csv',
+138,2,False,exec_error: NameError: name 'branch' is not defined,
+138,3,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'path_to_crime_data.csv',
+138,4,False,"exec_error: KeyError: ""['A1'] not in index""",
+139,0,True,,False
+139,1,True,,False
+139,2,True,,False
+139,3,True,,False
+139,4,True,,False
+140,0,False,exec_error: KeyError: 'district_name',
+140,1,False,exec_error: KeyError: 'district_name',
+140,2,False,exec_error: KeyError: 'account_id',
+140,3,True,,True
+140,4,False,exec_error: KeyError: 'account_id',
+141,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,1,False,exec_error: KeyError: 'district_id',
+141,2,True,,True
+141,3,False,exec_error: KeyError: 'district_id',
+141,4,False,exec_error: KeyError: 'district_id',
+142,0,False,exec_error: KeyError: 'district_id',
+142,1,True,,False
+142,2,False,exec_error: KeyError: 'district_id',
+142,3,True,,False
+142,4,True,,False
+143,0,True,,True
+143,1,False,exec_error: KeyError: 'type',
+143,2,True,,True
+143,3,False,exec_error: KeyError: 'type',
+143,4,True,,False
+144,0,False,exec_error: KeyError: 'date',
+144,1,True,,False
+144,2,True,,False
+144,3,True,,False
+144,4,True,,False
+145,0,True,,False
+145,1,True,,False
+145,2,True,,False
+145,3,True,,False
+145,4,True,,False
+146,0,True,,False
+146,1,False,"exec_error: KeyError: ""['district_id'] not in index""",
+146,2,False,exec_error: KeyError: 'type',
+146,3,False,"exec_error: ValueError: operands could not be broadcast together with shapes (0,) (682,) ",
+146,4,False,exec_error: KeyError: 'type',
+147,0,True,,False
+147,1,True,,False
+147,2,True,,False
+147,3,True,,False
+147,4,True,,False
+148,0,True,,False
+148,1,True,,False
+148,2,True,,True
+148,3,True,,True
+148,4,True,,True
+149,0,False,exec_error: TypeError: '<' not supported between instances of 'str' and 'int',
+149,1,True,,False
+149,2,False,exec_error: KeyError: 'Column not found: A1',
+149,3,False,exec_error: KeyError: 'disp',
+149,4,False,exec_error: KeyError: 'Column not found: A2',
+150,0,True,,False
+150,1,False,exec_error: KeyError: 'client_id',
+150,2,False,exec_error: NameError: name 'accounts' is not defined,
+150,3,True,,False
+150,4,True,,False
+151,0,True,,False
+151,1,True,,False
+151,2,True,,False
+151,3,True,,False
+151,4,True,,False
+152,0,False,exec_error: KeyError: 'A1',
+152,1,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+152,2,False,exec_error: KeyError: 'A1',
+152,3,False,exec_error: KeyError: 'A1',
+152,4,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+153,0,True,,True
+153,1,False,exec_error: KeyError: 'client_id',
+153,2,False,exec_error: TypeError: Cannot perform 'and_' with a dtyped [bool] array and scalar of type [bool],
+153,3,True,,True
+153,4,False,exec_error: TypeError: '<' not supported between instances of 'str' and 'int',
+154,0,True,,False
+154,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+154,2,True,,False
+154,3,False,exec_error: KeyError: 'A1',
+154,4,False,exec_error: KeyError: 'client_id',
+155,0,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+155,1,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+155,2,False,exec_error: KeyError: 'type',
+155,3,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+155,4,False,exec_error: KeyError: 'type',
+156,0,False,exec_error: KeyError: 'disp_id',
+156,1,False,exec_error: KeyError: 'client_id',
+156,2,False,exec_error: KeyError: 'disp_id',
+156,3,False,exec_error: KeyError: 'client_id',
+156,4,True,,True
+157,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,1,False,exec_error: NameError: name 'engine' is not defined,
+157,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,3,False,exec_error: NameError: name 'crime' is not defined,
+157,4,False,exec_error: KeyError: 'A1',
+158,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+159,0,False,exec_error: KeyError: 'client_id',
+159,1,False,exec_error: KeyError: 'client_id',
+159,2,False,exec_error: KeyError: 'client_id',
+159,3,False,exec_error: KeyError: 'type',
+159,4,False,exec_error: KeyError: 'client_id',
+160,0,False,exec_error: KeyError: 'Column not found: district_id',
+160,1,False,exec_error: KeyError: 'date',
+160,2,True,,False
+160,3,True,,False
+160,4,True,,False
+161,0,False,exec_error: KeyError: 'client_id',
+161,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+162,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+162,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+162,2,False,exec_error: UnboundLocalError: cannot access local variable 'client' where it is not associated with a value,
+162,3,False,exec_error: UnboundLocalError: cannot access local variable 'client' where it is not associated with a value,
+162,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+163,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+163,1,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+163,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+163,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+163,4,False,exec_error: KeyError: 'account',
+164,0,False,exec_error: NameError: name 'conn' is not defined,
+164,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+164,2,False,"exec_error: KeyError: ""None of [Index(['first_name', 'last_name'], dtype='str')] are in the [columns]""",
+164,3,False,exec_error: NameError: name 'engine' is not defined,
+164,4,False,exec_error: NameError: name 'orders' is not defined,
+165,0,False,exec_error: KeyError: 'account_id',
+165,1,True,,False
+165,2,True,,False
+165,3,False,exec_error: KeyError: 'account_id',
+165,4,True,,False
+166,0,True,,True
+166,1,True,,True
+166,2,True,,False
+166,3,True,,True
+166,4,True,,True
+167,0,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+167,1,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+167,2,False,exec_error: KeyError: 'type',
+167,3,False,exec_error: KeyError: 'client_id',
+167,4,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+168,0,False,exec_error: KeyError: 'Column not found: A1',
+168,1,False,exec_error: KeyError: 'Column not found: A1',
+168,2,False,exec_error: KeyError: 'Column not found: A1',
+168,3,False,exec_error: KeyError: 'Column not found: A1',
+168,4,False,exec_error: KeyError: 'Column not found: A1',
+169,0,False,exec_error: KeyError: 'account_id',
+169,1,False,exec_error: KeyError: 'client_id',
+169,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+169,3,False,exec_error: KeyError: 'account_id',
+169,4,False,exec_error: KeyError: 'disp_id',
+170,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+170,1,False,exec_error: KeyError: 'type',
+170,2,True,,False
+170,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+170,4,True,,False
+171,0,False,exec_error: KeyError: 'A1',
+171,1,False,exec_error: KeyError: 'A2',
+171,2,False,exec_error: KeyError: 'A2',
+171,3,False,exec_error: KeyError: 'A1',
+171,4,False,exec_error: KeyError: 'A3',
+172,0,False,exec_error: KeyError: 0,
+172,1,False,exec_error: KeyError: 0,
+172,2,False,exec_error: KeyError: 0,
+172,3,False,exec_error: KeyError: 0,
+172,4,False,exec_error: KeyError: 0,
+173,0,False,exec_error: KeyError: 'k_symbol',
+173,1,False,exec_error: KeyError: 'k_symbol',
+173,2,False,exec_error: KeyError: 'account_from',
+173,3,True,,False
+173,4,True,,False
+174,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+175,0,True,,False
+175,1,True,,False
+175,2,True,,False
+175,3,False,exec_error: AttributeError: 'Series' object has no attribute 'intersection',
+175,4,True,,False
+176,0,False,exec_error: KeyError: 'client_id',
+176,1,False,exec_error: KeyError: 'client_id',
+176,2,False,exec_error: KeyError: 'client_id',
+176,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+176,4,True,,False
+177,0,False,exec_error: KeyError: 'disp_id',
+177,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+177,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+177,3,False,exec_error: KeyError: 'client_id',
+177,4,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+178,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,2,False,exec_error: KeyError: 'type',
+178,3,False,exec_error: KeyError: 'type',
+178,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+179,0,False,exec_error: KeyError: 'client_id',
+179,1,False,exec_error: KeyError: 'client_id',
+179,2,False,exec_error: KeyError: 'client_id',
+179,3,False,exec_error: KeyError: 'client_id',
+179,4,False,exec_error: KeyError: 'client_id',
+180,0,False,exec_error: KeyError: 'A1',
+180,1,False,exec_error: KeyError: 'A1',
+180,2,False,exec_error: KeyError: 'A1',
+180,3,True,,False
+180,4,True,,False
+181,0,True,,False
+181,1,True,,False
+181,2,True,,False
+181,3,True,,False
+181,4,True,,False
+182,0,False,exec_error: KeyError: 'disp_id',
+182,1,False,exec_error: KeyError: 'type',
+182,2,False,exec_error: KeyError: 'type',
+182,3,True,,False
+182,4,False,exec_error: KeyError: 'disp_id',
+183,0,True,,False
+183,1,True,,False
+183,2,True,,False
+183,3,True,,False
+183,4,True,,False
+184,0,False,exec_error: KeyError: 'type',
+184,1,False,exec_error: KeyError: 'type',
+184,2,False,exec_error: KeyError: 'type',
+184,3,True,,False
+184,4,False,exec_error: KeyError: 'type',
+185,0,False,"exec_error: KeyError: ""['A1'] not in index""",
+185,1,False,exec_error: KeyError: 'gender',
+185,2,False,exec_error: KeyError: 'Female',
+185,3,False,exec_error: KeyError: 'client_id',
+185,4,True,,False
+186,0,False,exec_error: KeyError: 'account_id',
+186,1,False,exec_error: ZeroDivisionError: division by zero,
+186,2,True,,False
+186,3,False,exec_error: ZeroDivisionError: division by zero,
+186,4,False,exec_error: ZeroDivisionError: division by zero,
+187,0,True,,False
+187,1,True,,False
+187,2,True,,False
+187,3,False,exec_error: KeyError: 'client_id',
+187,4,True,,False
+188,0,True,,False
+188,1,True,,False
+188,2,False,exec_error: AttributeError: 'Series' object has no attribute 'intersection',
+188,3,True,,False
+188,4,False,exec_error: KeyError: 'date',
+189,0,False,exec_error: KeyError: 'Column not found: A2',
+189,1,False,exec_error: KeyError: 'Column not found: A1',
+189,2,False,exec_error: ValueError: Cannot subset columns with a tuple with more than one element. Use a list instead.,
+189,3,True,,False
+189,4,False,exec_error: KeyError: 'Column not found: income',
+190,0,True,,False
+190,1,False,"exec_error: KeyError: ""['A1'] not in index""",
+190,2,False,exec_error: KeyError: 'A1',
+190,3,True,,False
+190,4,False,exec_error: NameError: name 'clients' is not defined,
+191,0,True,,False
+191,1,True,,False
+191,2,True,,False
+191,3,True,,False
+191,4,True,,False
+192,0,True,,False
+192,1,True,,False
+192,2,True,,False
+192,3,True,,False
+192,4,True,,False
+193,0,True,,False
+193,1,True,,False
+193,2,False,exec_error: KeyError: 'client_id',
+193,3,True,,False
+193,4,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+194,0,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+194,1,False,exec_error: KeyError: 'disp_id',
+194,2,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+194,3,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+194,4,False,exec_error: KeyError: 'card_type',

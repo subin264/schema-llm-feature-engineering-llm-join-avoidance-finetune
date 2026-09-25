@@ -1,0 +1,13 @@
+model,condition,phase,AA,FA,SA
+llama,adaptive,after,48,465,17
+llama,adaptive,before,237,280,13
+llama,baseline,after,61,464,5
+llama,baseline,before,233,287,10
+llama,uniform,after,181,327,22
+llama,uniform,before,304,214,12
+qwen,adaptive,after,122,381,27
+qwen,adaptive,before,304,219,7
+qwen,baseline,after,159,364,7
+qwen,baseline,before,329,200,1
+qwen,uniform,after,251,258,21
+qwen,uniform,before,356,167,7

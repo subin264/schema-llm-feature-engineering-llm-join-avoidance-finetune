@@ -1,0 +1,531 @@
+question_id,repeat_idx,exec_ok,err,value_match
+89,0,False,exec_error: KeyError: 'A1',
+89,1,False,exec_error: KeyError: 'A1',
+89,2,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and int,
+89,3,True,,False
+89,4,False,exec_error: KeyError: 'A1',
+90,0,False,exec_error: KeyError: 'A1',
+90,1,False,exec_error: KeyError: 'A1',
+90,2,True,,False
+90,3,False,exec_error: KeyError: 'A1',
+90,4,False,exec_error: KeyError: 'A1',
+91,0,False,exec_error: KeyError: 'year',
+91,1,True,,False
+91,2,False,exec_error: NameError: name 'loan_data' is not defined,
+91,3,False,exec_error: KeyError: 'A1',
+91,4,False,exec_error: KeyError: 'A1',
+92,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+92,1,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+92,2,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and int,
+92,3,False,exec_error: KeyError: 'Column not found: A1',
+92,4,False,exec_error: KeyError: 'Column not found: A1',
+93,0,False,exec_error: KeyError: 'A1',
+93,1,False,exec_error: KeyError: 'A1',
+93,2,True,,False
+93,3,True,,False
+93,4,False,exec_error: KeyError: 'A1',
+94,0,False,exec_error: KeyError: 'Column not found: salary',
+94,1,False,exec_error: KeyError: 'Column not found: salary',
+94,2,False,exec_error: KeyError: 'Column not found: A1',
+94,3,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+94,4,False,exec_error: KeyError: 'Column not found: A1',
+95,0,False,exec_error: KeyError: 'client_id',
+95,1,False,exec_error: KeyError: 'Column not found: A1',
+95,2,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+95,3,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+95,4,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+96,0,True,,False
+96,1,True,,False
+96,2,True,,False
+96,3,True,,False
+96,4,True,,False
+97,0,True,,False
+97,1,True,,False
+97,2,True,,False
+97,3,True,,False
+97,4,True,,False
+98,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,1,True,,False
+98,2,True,,False
+98,3,False,"exec_error: KeyError: ""['frequency', 'date_x', 'amount_x', 'duration_x', 'payments_x', 'status_x'] not in index""",
+98,4,False,"exec_error: KeyError: ""['date'] not in index""",
+99,0,False,exec_error: KeyError: 'date',
+99,1,False,exec_error: KeyError: 'date',
+99,2,False,exec_error: ValueError: len(right_on) must equal len(left_on),
+99,3,False,exec_error: KeyError: 'date',
+99,4,False,exec_error: KeyError: 'date',
+100,0,False,exec_error: KeyError: '[77] not in index',
+100,1,True,,False
+100,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+100,3,True,,False
+100,4,True,,False
+101,0,True,,False
+101,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,2,True,,False
+101,3,True,,False
+101,4,True,,False
+102,0,True,,False
+102,1,True,,False
+102,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,3,False,exec_error: KeyError: 'date',
+102,4,True,,False
+103,0,True,,True
+103,1,False,exec_error: KeyError: 'disp_id',
+103,2,False,exec_error: KeyError: 'disp_id',
+103,3,False,exec_error: KeyError: 'disp_id',
+103,4,False,exec_error: KeyError: 'disp_id',
+104,0,False,exec_error: KeyError: 'date',
+104,1,True,,False
+104,2,False,exec_error: KeyError: 'date',
+104,3,True,,False
+104,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+105,0,False,"exec_error: KeyError: ""None of [Index(['district_id_y'], dtype='str')] are in the [columns]""",
+105,1,True,,False
+105,2,True,,False
+105,3,False,exec_error: KeyError: 'date',
+105,4,False,"exec_error: KeyError: ""None of [Index(['district_id_x'], dtype='str')] are in the [columns]""",
+106,0,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+106,1,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+106,2,True,,False
+106,3,True,,True
+106,4,False,exec_error: KeyError: 'account_id',
+107,0,False,exec_error: KeyError: 'A1',
+107,1,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+107,2,False,exec_error: KeyError: 'Column not found: A1',
+107,3,False,exec_error: KeyError: 'A16_x',
+107,4,False,exec_error: KeyError: 'Column not found: salary',
+108,0,True,,False
+108,1,False,exec_error: KeyError: 'client_id',
+108,2,True,,True
+108,3,True,,False
+108,4,False,exec_error: KeyError: 'date_x',
+109,0,False,exec_error: KeyError: 'A1',
+109,1,False,exec_error: KeyError: 'A1',
+109,2,True,,False
+109,3,False,exec_error: KeyError: 'A1',
+109,4,False,exec_error: KeyError: 'A1',
+110,0,True,,False
+110,1,True,,False
+110,2,True,,False
+110,3,False,exec_error: KeyError: 'trans',
+110,4,True,,False
+111,0,True,,True
+111,1,True,,False
+111,2,True,,True
+111,3,False,exec_error: IndexingError: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).,
+111,4,True,,False
+112,0,True,,False
+112,1,True,,False
+112,2,True,,False
+112,3,True,,False
+112,4,True,,False
+113,0,False,exec_error: KeyError: 'date',
+113,1,False,exec_error: KeyError: 'date',
+113,2,False,exec_error: KeyError: 'date',
+113,3,True,,False
+113,4,False,exec_error: KeyError: 'date',
+114,0,True,,False
+114,1,False,exec_error: KeyError: 'account',
+114,2,False,exec_error: KeyError: 'A1',
+114,3,True,,True
+114,4,False,exec_error: KeyError: 'A3',
+115,0,False,exec_error: KeyError: 'A1',
+115,1,True,,False
+115,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not integer",
+115,3,False,exec_error: KeyError: 'A1',
+115,4,True,,False
+116,0,False,exec_error: KeyError: 'date',
+116,1,True,,False
+116,2,False,exec_error: KeyError: 'client_id',
+116,3,False,exec_error: KeyError: 'date',
+116,4,False,exec_error: UnboundLocalError: cannot access local variable 'filtered_transactions' where it is not associated with a value,
+117,0,True,,False
+117,1,True,,False
+117,2,True,,False
+117,3,True,,False
+117,4,True,,False
+118,0,False,exec_error: KeyError: 'amount',
+118,1,True,,False
+118,2,True,,False
+118,3,True,,False
+118,4,True,,False
+119,0,False,exec_error: TypeError: '<' not supported between instances of 'str' and 'int',
+119,1,True,,False
+119,2,False,exec_error: TypeError: '<' not supported between instances of 'Timestamp' and 'str',
+119,3,False,"exec_error: KeyError: ""['A1'] not in index""",
+119,4,False,exec_error: KeyError: 'statement_date',
+120,0,True,,False
+120,1,True,,False
+120,2,False,exec_error: KeyError: 'A1',
+120,3,True,,False
+120,4,True,,False
+121,0,True,,True
+121,1,True,,True
+121,2,True,,False
+121,3,True,,True
+121,4,True,,True
+122,0,True,,True
+122,1,True,,True
+122,2,True,,True
+122,3,False,"exec_error: KeyError: ""['A1'] not in index""",
+122,4,False,"exec_error: KeyError: ""['A1'] not in index""",
+123,0,False,"exec_error: KeyError: ""['A1'] not in index""",
+123,1,False,"exec_error: KeyError: ""['A1'] not in index""",
+123,2,False,"exec_error: KeyError: ""['A1'] not in index""",
+123,3,True,,False
+123,4,True,,True
+124,0,False,exec_error: KeyError: 'Column not found: A1',
+124,1,False,exec_error: KeyError: 'Column not found: A1',
+124,2,False,exec_error: KeyError: 'Column not found: A1',
+124,3,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+124,4,True,,False
+125,0,True,,False
+125,1,False,exec_error: KeyError: 'date',
+125,2,,,
+125,3,False,"exec_error: KeyError: ""['A1'] not in index""",
+125,4,False,exec_error: KeyError: 'date',
+126,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,1,True,,True
+126,2,False,exec_error: KeyError: 'A1',
+126,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,4,True,,True
+127,0,False,exec_error: KeyError: 'account_id',
+127,1,True,,False
+127,2,True,,False
+127,3,True,,False
+127,4,True,,False
+128,0,False,"exec_error: KeyError: ""None of [Index(['A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12',\n       'A13', 'A14', 'A15', 'A16'],\n      dtype='str')] are in",
+128,1,True,,False
+128,2,True,,False
+128,3,True,,False
+128,4,True,,False
+129,0,True,,False
+129,1,False,exec_error: KeyError: 'A2',
+129,2,True,,False
+129,3,False,exec_error: KeyError: 'A2',
+129,4,False,exec_error: KeyError: 'type',
+130,0,True,,False
+130,1,True,,False
+130,2,False,exec_error: KeyError: 'A1',
+130,3,True,,False
+130,4,False,exec_error: KeyError: 'A1',
+131,0,True,,False
+131,1,True,,False
+131,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,3,True,,False
+131,4,False,exec_error: KeyError: 'A1',
+132,0,True,,False
+132,1,True,,False
+132,2,True,,False
+132,3,True,,False
+132,4,True,,False
+133,0,True,,False
+133,1,False,"exec_error: KeyError: ""['A1'] not in index""",
+133,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not integer",
+133,3,False,exec_error: KeyError: 'A1',
+133,4,False,exec_error: KeyError: 'year',
+134,0,False,"exec_error: KeyError: ""Label(s) ['account_id'] do not exist""",
+134,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+134,2,True,,True
+134,3,True,,False
+134,4,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+135,0,True,,False
+135,1,False,exec_error: KeyError: 'date',
+135,2,True,,False
+135,3,True,,False
+135,4,True,,False
+136,0,True,,False
+136,1,True,,False
+136,2,True,,False
+136,3,False,exec_error: KeyError: 'frequency_y',
+136,4,True,,False
+137,0,False,exec_error: KeyError: 'A1',
+137,1,True,,False
+137,2,False,exec_error: KeyError: 'A1',
+137,3,False,exec_error: KeyError: 'A1',
+137,4,True,,False
+138,0,False,exec_error: UnboundLocalError: cannot access local variable 'filtered' where it is not associated with a value,
+138,1,False,exec_error: UnboundLocalError: cannot access local variable 'filtered_df' where it is not associated with a value,
+138,2,False,exec_error: KeyError: 'A1',
+138,3,False,exec_error: KeyError: 'client_id',
+138,4,False,exec_error: IndexError: list index out of range,
+139,0,True,,False
+139,1,False,exec_error: KeyError: 'type',
+139,2,True,,False
+139,3,False,exec_error: KeyError: 'type',
+139,4,True,,False
+140,0,True,,True
+140,1,True,,True
+140,2,True,,True
+140,3,True,,True
+140,4,True,,True
+141,0,True,,True
+141,1,False,exec_error: KeyError: 'date',
+141,2,True,,True
+141,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,4,False,exec_error: KeyError: 'district_id',
+142,0,True,,False
+142,1,False,exec_error: KeyError: 'district_id',
+142,2,True,,False
+142,3,False,exec_timeout,
+142,4,False,exec_error: KeyError: 'client_id',
+143,0,False,exec_error: KeyError: 'type',
+143,1,True,,True
+143,2,True,,False
+143,3,False,exec_error: KeyError: 'type',
+143,4,True,,True
+144,0,False,exec_error: KeyError: 'card_id',
+144,1,False,exec_error: KeyError: 'disp_id',
+144,2,False,exec_error: KeyError: 'account_id',
+144,3,False,exec_error: KeyError: 'type',
+144,4,False,exec_error: KeyError: 'birth_date',
+145,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,1,True,,False
+145,2,True,,False
+145,3,True,,False
+145,4,True,,False
+146,0,True,,False
+146,1,True,,False
+146,2,False,exec_error: KeyError: 'client_id',
+146,3,True,,False
+146,4,True,,False
+147,0,False,exec_error: KeyError: 'A1',
+147,1,True,,False
+147,2,True,,False
+147,3,False,exec_error: KeyError: 'A1',
+147,4,False,exec_error: KeyError: 'A1',
+148,0,True,,True
+148,1,True,,True
+148,2,False,exec_error: KeyError: 'A1',
+148,3,False,exec_error: KeyError: 'A1',
+148,4,True,,True
+149,0,False,exec_error: KeyError: 'A1',
+149,1,True,,False
+149,2,False,"exec_error: KeyError: ""['A15'] not in index""",
+149,3,False,exec_error: KeyError: 'type',
+149,4,False,exec_error: KeyError: 'A1',
+150,0,False,exec_error: KeyError: 'A2',
+150,1,False,exec_error: KeyError: 'A1',
+150,2,True,,False
+150,3,True,,False
+150,4,False,exec_error: KeyError: 'A1',
+151,0,True,,False
+151,1,True,,False
+151,2,True,,True
+151,3,True,,False
+151,4,True,,False
+152,0,False,exec_error: UnboundLocalError: cannot access local variable 'filtered_df' where it is not associated with a value,
+152,1,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+152,2,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+152,3,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+152,4,False,exec_error: KeyError: 'A1',
+153,0,True,,True
+153,1,False,exec_error: KeyError: 'balance',
+153,2,True,,False
+153,3,True,,False
+153,4,True,,True
+154,0,True,,False
+154,1,True,,True
+154,2,True,,False
+154,3,True,,False
+154,4,True,,True
+155,0,False,exec_error: KeyError: 'issued',
+155,1,True,,False
+155,2,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+155,3,False,exec_error: KeyError: 'issue_date',
+155,4,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+156,0,False,exec_error: KeyError: 'client_id',
+156,1,True,,True
+156,2,True,,True
+156,3,True,,False
+156,4,False,exec_error: KeyError: 'name',
+157,0,True,,False
+157,1,True,,False
+157,2,True,,False
+157,3,True,,False
+157,4,True,,False
+158,0,False,exec_error: KeyError: 'district_id',
+158,1,False,exec_error: KeyError: 'district_id',
+158,2,False,exec_error: KeyError: 'district_id',
+158,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,4,False,exec_error: KeyError: 'district_id',
+159,0,False,exec_error: KeyError: 'type',
+159,1,False,exec_error: UndefinedVariableError: name 'type' is not defined,
+159,2,False,exec_error: KeyError: 'type',
+159,3,False,exec_error: KeyError: 'account_id',
+159,4,False,exec_error: KeyError: 'disp_id',
+160,0,True,,False
+160,1,True,,False
+160,2,True,,False
+160,3,False,exec_error: KeyError: 'amount_loan',
+160,4,True,,False
+161,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,2,False,exec_error: KeyError: 'type',
+161,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,4,True,,False
+162,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+162,1,False,exec_error: ValueError: Cannot index with multidimensional key,
+162,2,False,exec_error: KeyError: 'A1',
+162,3,True,,False
+162,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+163,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+163,1,True,,False
+163,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+163,3,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+163,4,True,,False
+164,0,False,exec_error: KeyError: 'client_id',
+164,1,True,,False
+164,2,True,,False
+164,3,True,,False
+164,4,True,,False
+165,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+165,1,False,exec_error: KeyError: 'account_id',
+165,2,False,"exec_error: KeyError: ""['date'] not in index""",
+165,3,True,,False
+165,4,False,exec_error: KeyError: 'account_id',
+166,0,True,,False
+166,1,True,,True
+166,2,True,,False
+166,3,True,,True
+166,4,True,,True
+167,0,False,exec_error: KeyError: 'account_id',
+167,1,True,,True
+167,2,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+167,3,False,exec_error: KeyError: 'account_id',
+167,4,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+168,0,False,exec_error: KeyError: 'Column not found: A1',
+168,1,True,,False
+168,2,False,exec_error: KeyError: 'Column not found: A1',
+168,3,False,exec_error: KeyError: 'Column not found: A1',
+168,4,False,exec_error: KeyError: 'Column not found: A1',
+169,0,False,exec_error: KeyError: 'date',
+169,1,False,exec_error: KeyError: 'date',
+169,2,False,exec_error: KeyError: 'date',
+169,3,False,exec_error: KeyError: 'date',
+169,4,False,exec_error: KeyError: 'date',
+170,0,True,,False
+170,1,True,,False
+170,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+170,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+170,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+171,0,False,exec_error: KeyError: 'A3',
+171,1,False,exec_error: KeyError: 'A14',
+171,2,True,,False
+171,3,False,exec_error: KeyError: 'A3',
+171,4,False,exec_error: KeyError: 'A1',
+172,0,True,,False
+172,1,True,,False
+172,2,False,exec_error: TypeError: unsupported operand type(s) for |: 'str' and 'StringArray',
+172,3,True,,False
+172,4,True,,False
+173,0,False,exec_error: ValueError: You are trying to merge on int64 and str columns for key 'account_id'. If you wish to proceed you should use pd.concat,
+173,1,False,exec_error: KeyError: 'k_symbol',
+173,2,False,exec_error: KeyError: 'account_from',
+173,3,True,,False
+173,4,False,exec_error: KeyError: 'VYBERU',
+174,0,True,,False
+174,1,True,,False
+174,2,True,,False
+174,3,True,,False
+174,4,True,,False
+175,0,False,exec_error: KeyError: 'type',
+175,1,True,,False
+175,2,True,,False
+175,3,True,,False
+175,4,True,,False
+176,0,False,exec_error: KeyError: 'disp_id',
+176,1,True,,False
+176,2,True,,False
+176,3,True,,False
+176,4,True,,False
+177,0,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+177,1,True,,False
+177,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+177,3,True,,False
+177,4,False,exec_error: KeyError: 'gender',
+178,0,True,,False
+178,1,False,exec_error: KeyError: 'type',
+178,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+179,0,True,,False
+179,1,False,exec_error: KeyError: 'date',
+179,2,False,exec_error: KeyError: 'date',
+179,3,True,,False
+179,4,False,exec_error: KeyError: 'date',
+180,0,False,exec_error: KeyError: 'district_id',
+180,1,False,exec_error: KeyError: 'A8',
+180,2,False,"exec_error: MergeError: Passing 'suffixes' which cause duplicate columns {'district_id_x', 'district_id_y'} is not allowed.",
+180,3,False,"exec_error: MergeError: Passing 'suffixes' which cause duplicate columns {'district_id_x', 'district_id_y'} is not allowed.",
+180,4,True,,False
+181,0,True,,False
+181,1,True,,False
+181,2,True,,False
+181,3,True,,False
+181,4,True,,False
+182,0,True,,False
+182,1,False,exec_error: KeyError: 'type',
+182,2,True,,False
+182,3,False,exec_error: KeyError: 'type',
+182,4,False,exec_error: KeyError: 'disp_id',
+183,0,True,,True
+183,1,True,,False
+183,2,True,,False
+183,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+183,4,True,,False
+184,0,False,exec_error: KeyError: 'type',
+184,1,False,exec_error: KeyError: 'type',
+184,2,False,exec_error: KeyError: 'type',
+184,3,False,exec_error: KeyError: 'type',
+184,4,True,,False
+185,0,True,,False
+185,1,True,,False
+185,2,True,,False
+185,3,False,exec_error: KeyError: 'gender',
+185,4,True,,False
+186,0,False,exec_error: KeyError: 'client_id',
+186,1,False,exec_error: KeyError: 'client_id',
+186,2,False,exec_error: KeyError: 'client_id',
+186,3,True,,False
+186,4,True,,False
+187,0,True,,False
+187,1,True,,False
+187,2,True,,False
+187,3,True,,False
+187,4,True,,False
+188,0,False,exec_error: ValueError: len(right_on) must equal len(left_on),
+188,1,False,exec_error: KeyError: 'date',
+188,2,False,exec_error: KeyError: 'date',
+188,3,True,,False
+188,4,True,,False
+189,0,False,exec_error: KeyError: 'Column not found: A1',
+189,1,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+189,2,False,exec_error: AttributeError: 'Series' object has no attribute 'days',
+189,3,False,exec_error: KeyError: 'Column not found: A14',
+189,4,False,"exec_error: ValueError: Cannot convert from timedelta64[us] to timedelta64[Y]. Supported resolutions are 's', 'ms', 'us', 'ns'",
+190,0,False,exec_error: KeyError: 'A1',
+190,1,False,exec_error: KeyError: 'A1',
+190,2,False,exec_error: KeyError: 'A1',
+190,3,True,,False
+190,4,False,exec_error: KeyError: 'A1',
+191,0,True,,False
+191,1,True,,False
+191,2,True,,False
+191,3,True,,False
+191,4,True,,False
+192,0,False,exec_error: KeyError: 'date',
+192,1,False,exec_error: KeyError: 'date',
+192,2,True,,False
+192,3,True,,False
+192,4,False,exec_error: KeyError: 'date',
+193,0,False,exec_error: KeyError: 'type',
+193,1,False,exec_error: KeyError: 'A17',
+193,2,False,exec_error: KeyError: 'type',
+193,3,True,,False
+193,4,False,"exec_error: KeyError: ""None of [Index(['client_id', 'A1'], dtype='str')] are in the [columns]""",
+194,0,False,exec_error: KeyError: 'type_x',
+194,1,True,,False
+194,2,False,exec_error: KeyError: 'type',
+194,3,False,exec_error: KeyError: 'status',
+194,4,False,exec_error: KeyError: 'type',

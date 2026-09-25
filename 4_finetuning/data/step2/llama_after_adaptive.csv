@@ -1,0 +1,535 @@
+question_id,repeat_idx,exec_ok,err,value_match
+89,0,True,,False
+89,1,False,exec_error: KeyError: 'issue_after_transaction',
+89,2,False,exec_error: KeyError: 'transaction',
+89,3,True,,False
+89,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+90,0,True,,False
+90,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+90,2,False,exec_error: KeyError: 'account_id',
+90,3,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+90,4,False,exec_error: KeyError: 'district_id',
+91,0,False,exec_error: KeyError: 'Year',
+91,1,False,exec_error: KeyError: 'year',
+91,2,False,exec_error: KeyError: 'district_id',
+91,3,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'district.csv',
+91,4,False,exec_error: KeyError: 'A2',
+92,0,False,exec_error: TypeError: unsupported operand type(s) for /: 'int' and 'str',
+92,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+92,2,False,exec_error: TypeError: Cannot perform 'rand_' with a dtyped [float64] array and scalar of type [bool],
+92,3,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+92,4,False,exec_error: TypeError: Cannot perform 'rand_' with a dtyped [float64] array and scalar of type [bool],
+93,0,True,,False
+93,1,True,,False
+93,2,True,,False
+93,3,False,exec_error: KeyError: 'district_id',
+93,4,True,,False
+94,0,False,exec_error: KeyError: 'account_id',
+94,1,False,exec_error: KeyError: 'account_id',
+94,2,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+94,3,False,exec_error: KeyError: 'account_id',
+94,4,False,exec_error: KeyError: 'client_id',
+95,0,False,exec_error: KeyError: 'account_id',
+95,1,False,exec_error: KeyError: 'account_id',
+95,2,False,exec_error: KeyError: 'client_id',
+95,3,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+95,4,False,exec_error: KeyError: 'A12_client',
+96,0,False,exec_error: KeyError: 'owner',
+96,1,False,exec_error: KeyError: 'client_id',
+96,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+96,3,False,exec_error: KeyError: '_account2',
+96,4,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+97,0,False,exec_error: KeyError: 'client_id',
+97,1,True,,False
+97,2,True,,False
+97,3,True,,False
+97,4,True,,False
+98,0,False,exec_error: MergeError: Passing 'suffixes' which cause duplicate columns {'date_account'} is not allowed.,
+98,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,4,False,exec_error: KeyError: 'date',
+99,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+99,1,False,exec_error: KeyError: 'date',
+99,2,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+99,3,True,,False
+99,4,False,exec_error: KeyError: 'date',
+100,0,False,exec_error: KeyError: 'client_id',
+100,1,False,exec_error: KeyError: 'client_id',
+100,2,False,exec_error: KeyError: 'client_id',
+100,3,False,exec_error: KeyError: 'client_id',
+100,4,False,exec_error: KeyError: 'client_id',
+101,0,True,,False
+101,1,True,,False
+101,2,True,,False
+101,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,4,True,,False
+102,0,True,,False
+102,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,3,False,exec_error: TypeError: Cannot perform 'rand_' with a dtyped [int64] array and scalar of type [bool],
+102,4,False,exec_error: KeyError: 'date',
+103,0,True,,False
+103,1,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+103,2,False,exec_error: AttributeError: 'str' object has no attribute 'date',
+103,3,False,exec_error: AttributeError: 'str' object has no attribute 'year',
+103,4,False,exec_error: KeyError: 'client_id',
+104,0,True,,False
+104,1,False,exec_error: KeyError: 'date',
+104,2,True,,False
+104,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+104,4,False,exec_error: KeyError: 'date_x',
+105,0,False,"exec_error: KeyError: ""['date'] not in index""",
+105,1,True,,True
+105,2,False,exec_error: KeyError: 'date',
+105,3,True,,False
+105,4,True,,False
+106,0,True,,False
+106,1,True,,False
+106,2,True,,False
+106,3,False,exec_error: KeyError: 'account_id',
+106,4,False,exec_error: KeyError: 'client_id',
+107,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+107,1,False,exec_error: ValueError: could not convert string to float: 'Pisek',
+107,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+107,3,True,,True
+107,4,True,,False
+108,0,True,,False
+108,1,False,exec_error: KeyError: 'client_id',
+108,2,False,exec_error: KeyError: 'Column not found: amount',
+108,3,False,exec_error: KeyError: 'amount',
+108,4,False,exec_error: KeyError: 'amount',
+109,0,True,,False
+109,1,True,,False
+109,2,True,,False
+109,3,True,,False
+109,4,True,,False
+110,0,False,exec_error: UnboundLocalError: cannot access local variable 'trans' where it is not associated with a value,
+110,1,False,exec_error: KeyError: 'client',
+110,2,False,exec_error: UnboundLocalError: cannot access local variable 'trans' where it is not associated with a value,
+110,3,False,exec_error: KeyError: 'client',
+110,4,False,exec_error: KeyError: 'client_id',
+111,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,1,True,,False
+111,2,True,,False
+111,3,True,,False
+111,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+112,0,True,,False
+112,1,False,"exec_error: KeyError: ""None of [Index(['district_id'], dtype='str')] are in the [columns]""",
+112,2,True,,False
+112,3,False,exec_error: KeyError: 'district_id',
+112,4,True,,False
+113,0,False,exec_error: KeyError: 'disp_id',
+113,1,False,exec_error: KeyError: 'account_id',
+113,2,True,,False
+113,3,,,
+113,4,True,,False
+114,0,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+114,1,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+114,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,3,True,,False
+114,4,False,exec_error: KeyError: 'A1',
+115,0,False,exec_error: KeyError: 'branch_id',
+115,1,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+115,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+115,3,False,"exec_error: KeyError:       account_id  district_id         frequency       date
+0              1           18  POPLATEK MESICNE 1995-03-24
+1              2            1  P",
+115,4,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+116,0,False,exec_error: KeyError: 'balance',
+116,1,False,"exec_error: TypeError: Boolean array expected for the condition, not object",
+116,2,False,"exec_error: KeyError: ""Label(s) ['balance_trans'] do not exist""",
+116,3,False,exec_error: KeyError: 'date',
+116,4,False,exec_error: KeyError: 'date',
+117,0,True,,False
+117,1,True,,False
+117,2,True,,False
+117,3,True,,False
+117,4,True,,False
+118,0,True,,False
+118,1,True,,False
+118,2,True,,False
+118,3,False,exec_error: KeyError: 'issue',
+118,4,True,,False
+119,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,2,True,,False
+119,3,False,exec_error: KeyError: 'statement_date',
+119,4,False,exec_error: KeyError: 'statement_date',
+120,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+120,1,True,,False
+120,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+120,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+120,4,True,,False
+121,0,True,,True
+121,1,True,,True
+121,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+121,3,True,,True
+121,4,True,,True
+122,0,True,,False
+122,1,False,exec_error: KeyError: 'account_id',
+122,2,True,,False
+122,3,False,exec_error: KeyError: 'account_id',
+122,4,False,exec_error: KeyError: 'account_id',
+123,0,True,,False
+123,1,False,exec_error: KeyError: 'account_id',
+123,2,False,exec_error: KeyError: 'account_id',
+123,3,False,exec_error: KeyError: 'account_id',
+123,4,True,,False
+124,0,True,,False
+124,1,True,,False
+124,2,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+124,3,True,,False
+124,4,False,exec_error: KeyError: 'account_id',
+125,0,False,exec_error: KeyError: 'account_id',
+125,1,False,exec_error: KeyError: 'account_id',
+125,2,False,exec_error: KeyError: 'district_id',
+125,3,False,exec_error: KeyError: 'account_id',
+125,4,False,exec_error: KeyError: 'account_id',
+126,0,False,exec_error: KeyError: 'A2',
+126,1,True,,False
+126,2,True,,False
+126,3,False,exec_error: KeyError: 'Decin',
+126,4,False,exec_error: NameError: name 'district_id' is not defined,
+127,0,False,exec_error: KeyError: 'account_id',
+127,1,True,,False
+127,2,False,exec_error: KeyError: 'account_id',
+127,3,False,exec_error: KeyError: 'monthly_status',
+127,4,True,,False
+128,0,True,,False
+128,1,True,,False
+128,2,True,,False
+128,3,False,exec_error: KeyError: 'district_id',
+128,4,True,,False
+129,0,False,exec_error: KeyError: 'account',
+129,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+129,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+129,3,False,exec_error: KeyError: 'A2_district',
+129,4,False,exec_error: KeyError: 'account',
+130,0,True,,False
+130,1,True,,False
+130,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+130,3,False,exec_error: KeyError: 'district_id',
+130,4,False,exec_error: AttributeError: 'numpy.int64' object has no attribute 'to_frame',
+131,0,False,exec_error: KeyError: 'district_id',
+131,1,False,exec_error: KeyError: '_district',
+131,2,False,exec_error: KeyError: 'account_id',
+131,3,True,,False
+131,4,False,exec_error: KeyError: 'total_active_loans',
+132,0,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+132,1,True,,False
+132,2,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+132,3,True,,False
+132,4,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+133,0,,,
+133,1,False,exec_error: KeyError: 'unemployed',
+133,2,False,exec_error: KeyError: 'branch_location',
+133,3,False,exec_error: KeyError: 'branch_location',
+133,4,False,exec_error: KeyError: 'A2',
+134,0,False,exec_error: KeyError: 'branch_id',
+134,1,False,exec_error: KeyError: 'branch_id',
+134,2,False,exec_error: KeyError: 'branch_id',
+134,3,False,exec_error: KeyError: 'branch_id',
+134,4,False,exec_error: KeyError: 'branch',
+135,0,True,,False
+135,1,False,exec_error: KeyError: 'account_id',
+135,2,True,,False
+135,3,False,exec_error: KeyError: 'account_id',
+135,4,False,exec_error: KeyError: 'account_id',
+136,0,True,,False
+136,1,,,
+136,2,False,exec_error: KeyError: 'date',
+136,3,False,exec_error: KeyError: 'date',
+136,4,False,exec_error: KeyError: 'date',
+137,0,True,,False
+137,1,False,exec_error: KeyError: 'A1',
+137,2,False,exec_error: KeyError: 'A1',
+137,3,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+137,4,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+138,0,False,exec_error: KeyError: 'branch_id',
+138,1,False,exec_error: NameError: name 'crime' is not defined,
+138,2,False,exec_error: IndexingError: Too many indexers,
+138,3,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+138,4,False,exec_error: KeyError: 'A2',
+139,0,True,,False
+139,1,True,,False
+139,2,True,,False
+139,3,True,,False
+139,4,True,,False
+140,0,True,,True
+140,1,True,,True
+140,2,False,exec_error: KeyError: '_pisek.account_id',
+140,3,True,,True
+140,4,True,,True
+141,0,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+141,1,False,exec_error: KeyError: 'account_id',
+141,2,False,exec_error: KeyError: 'client_id',
+141,3,True,,False
+141,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+142,0,,,
+142,1,False,exec_error: KeyError: 'account_id',
+142,2,False,exec_error: KeyError: 'client_id',
+142,3,False,exec_error: KeyError: 'client_id',
+142,4,False,exec_error: KeyError: 'district_id',
+143,0,False,exec_error: KeyError: 'type_x',
+143,1,False,exec_error: KeyError: 'type_x',
+143,2,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+143,3,True,,False
+143,4,True,,False
+144,0,False,exec_error: KeyError: 'account_id',
+144,1,False,exec_error: KeyError: 'trans_id',
+144,2,False,exec_error: KeyError: 'disp_id',
+144,3,False,exec_error: KeyError: 'disp_id',
+144,4,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+145,0,True,,False
+145,1,False,exec_error: KeyError: 'date',
+145,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not floating",
+145,4,False,exec_error: KeyError: 'date',
+146,0,False,exec_error: KeyError: 'account_id',
+146,1,False,exec_error: TypeError: unsupported operand type(s) for &: 'str' and 'StringArray',
+146,2,False,exec_error: TypeError: Cannot perform 'rand_' with a dtyped [bool] array and scalar of type [bool],
+146,3,False,exec_error: KeyError: 'account_id',
+146,4,False,exec_error: AttributeError: 'DataFrame' object has no attribute 'card_type',
+147,0,True,,False
+147,1,True,,False
+147,2,True,,False
+147,3,True,,False
+147,4,True,,False
+148,0,False,exec_error: KeyError: 'account_id',
+148,1,True,,True
+148,2,False,exec_error: UnboundLocalError: cannot access local variable 'district' where it is not associated with a value,
+148,3,True,,True
+148,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+149,0,False,exec_error: KeyError: 'card_id',
+149,1,False,exec_error: KeyError: 'account_id',
+149,2,False,exec_error: KeyError: 'average_income',
+149,3,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+149,4,False,exec_error: KeyError: 'income',
+150,0,False,exec_error: KeyError: 'district_id',
+150,1,False,exec_error: KeyError: 'district_id',
+150,2,False,exec_error: KeyError: 'district_id',
+150,3,False,exec_error: KeyError: 'district_id',
+150,4,False,exec_error: KeyError: 'account_id',
+151,0,True,,False
+151,1,False,exec_error: KeyError: 'district',
+151,2,,,
+151,3,True,,False
+151,4,False,"exec_error: KeyError: ""['date'] not found in axis""",
+152,0,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+152,1,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and int,
+152,2,False,exec_error: KeyError: 'district_id',
+152,3,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and int,
+152,4,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and int,
+153,0,True,,False
+153,1,True,,False
+153,2,True,,False
+153,3,False,exec_error: KeyError: 'type_x',
+153,4,True,,False
+154,0,True,,False
+154,1,True,,False
+154,2,False,exec_error: AttributeError: 'numpy.int64' object has no attribute 'to_frame',
+154,3,True,,False
+154,4,True,,False
+155,0,True,,False
+155,1,False,"exec_error: ValueError: time data ""1998-10-16"" doesn't match format ""%Y%m%d"". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - pa",
+155,2,True,,False
+155,3,False,exec_error: KeyError: 'disp_id',
+155,4,False,exec_error: KeyError: 'card_id',
+156,0,True,,False
+156,1,False,exec_error: KeyError: 'disp_id',
+156,2,False,exec_error: KeyError: 'client_id',
+156,3,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+156,4,False,"exec_error: KeyError: ""['amount_x', 'amount_y'] not in index""",
+157,0,False,exec_error: NameError: name 'date' is not defined,
+157,1,False,exec_error: KeyError: 'account_id',
+157,2,True,,False
+157,3,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+157,4,False,exec_error: KeyError: 'date',
+158,0,True,,True
+158,1,True,,False
+158,2,True,,False
+158,3,False,"exec_error: KeyError: ""['account_id_account', 'district_id_district'] not in index""",
+158,4,True,,False
+159,0,False,exec_error: KeyError: 'type',
+159,1,False,exec_error: KeyError: 'trans_id',
+159,2,False,exec_error: KeyError: 'type',
+159,3,False,exec_error: UnboundLocalError: cannot access local variable 'client' where it is not associated with a value,
+159,4,False,exec_error: KeyError: '_trans_type',
+160,0,True,,False
+160,1,False,exec_error: KeyError: 'amount_x',
+160,2,True,,False
+160,3,True,,False
+160,4,True,,False
+161,0,False,"exec_error: KeyError: ""['card_type'] not in index""",
+161,1,False,exec_error: KeyError: 'client_id',
+161,2,False,exec_error: KeyError: 'client_id',
+161,3,False,exec_error: KeyError: 'client_id',
+161,4,False,exec_error: KeyError: 'client_id',
+162,0,True,,False
+162,1,False,"exec_error: KeyError: ""['region'] not in index""",
+162,2,True,,False
+162,3,True,,False
+162,4,False,"exec_error: KeyError: ""['region'] not in index""",
+163,0,False,exec_error: KeyError: 'problems',
+163,1,True,,False
+163,2,True,,False
+163,3,True,,False
+163,4,True,,False
+164,0,False,exec_error: KeyError: 'account_id',
+164,1,False,exec_error: KeyError: 'client_id',
+164,2,False,exec_error: KeyError: 'account_id',
+164,3,False,exec_error: KeyError: 'account_id',
+164,4,False,exec_error: KeyError: 'disp_id',
+165,0,True,,False
+165,1,True,,False
+165,2,True,,False
+165,3,True,,False
+165,4,True,,False
+166,0,True,,True
+166,1,True,,True
+166,2,True,,True
+166,3,True,,True
+166,4,True,,True
+167,0,True,,False
+167,1,False,exec_error: KeyError: 'type',
+167,2,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,3,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,4,False,exec_error: KeyError: 'type',
+168,0,True,,False
+168,1,True,,False
+168,2,True,,False
+168,3,True,,False
+168,4,True,,False
+169,0,False,exec_error: KeyError: 'account_id',
+169,1,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+169,2,False,exec_error: MergeError: Passing 'suffixes' which cause duplicate columns {'date_right'} is not allowed.,
+169,3,False,exec_error: KeyError: 'date',
+169,4,False,exec_error: KeyError: 'client_id',
+170,0,True,,False
+170,1,True,,False
+170,2,True,,False
+170,3,True,,False
+170,4,True,,False
+171,0,False,exec_error: TypeError: unsupported operand type(s) for -: 'str' and 'str',
+171,1,True,,False
+171,2,True,,False
+171,3,True,,False
+171,4,False,exec_error: KeyError: 'A2',
+172,0,True,,False
+172,1,False,exec_error: TypeError: unsupported operand type(s) for |: 'StringArray' and 'StringArray',
+172,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+172,3,True,,False
+172,4,True,,False
+173,0,True,,False
+173,1,False,exec_error: AttributeError: 'numpy.int64' object has no attribute 'rename',
+173,2,False,exec_error: AttributeError: 'numpy.float64' object has no attribute 'rename',
+173,3,True,,False
+173,4,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+174,0,False,exec_error: KeyError: 'account_id',
+174,1,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+174,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+174,3,False,exec_error: KeyError: 'account_id',
+174,4,False,exec_error: KeyError: 'client_id',
+175,0,False,exec_error: KeyError: 'type_acc',
+175,1,True,,False
+175,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+175,3,True,,False
+175,4,False,exec_error: KeyError: 'owner_disposition',
+176,0,True,,False
+176,1,True,,False
+176,2,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+176,3,True,,False
+176,4,True,,False
+177,0,False,exec_error: KeyError: 'client_id',
+177,1,False,exec_error: KeyError: 'client_id',
+177,2,False,exec_error: KeyError: 'disp_id',
+177,3,False,exec_error: KeyError: 'client_id',
+177,4,False,exec_error: KeyError: 'client_id',
+178,0,False,"exec_error: KeyError: ""['type'] not in index""",
+178,1,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+178,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,3,False,exec_error: UnboundLocalError: cannot access local variable 'card' where it is not associated with a value,
+178,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+179,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+179,1,False,exec_error: KeyError: 'date',
+179,2,False,exec_error: KeyError: 'client_id',
+179,3,False,exec_error: KeyError: 'date',
+179,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+180,0,False,exec_error: FileNotFoundError: [Errno 2] No such file or directory: 'client.csv',
+180,1,False,exec_error: KeyError: 'client_id',
+180,2,True,,False
+180,3,False,exec_error: KeyError: 'district_id',
+180,4,True,,False
+181,0,True,,False
+181,1,True,,False
+181,2,True,,False
+181,3,False,exec_error: KeyError: 'client_id',
+181,4,True,,False
+182,0,True,,False
+182,1,True,,False
+182,2,False,exec_error: KeyError: 'type',
+182,3,True,,False
+182,4,False,exec_error: KeyError: 'account_id',
+183,0,True,,False
+183,1,True,,False
+183,2,True,,False
+183,3,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+183,4,True,,True
+184,0,False,exec_error: KeyError: 'client_id',
+184,1,False,exec_error: KeyError: 'disp_id',
+184,2,False,exec_error: KeyError: 'client_id',
+184,3,False,exec_error: KeyError: 'client_id',
+184,4,False,exec_error: KeyError: 'client_id',
+185,0,False,exec_error: KeyError: 'client_id',
+185,1,False,exec_error: KeyError: 'client_id',
+185,2,False,exec_error: KeyError: 'client_id',
+185,3,False,exec_error: KeyError: 'client_id',
+185,4,False,exec_error: KeyError: 'client_id',
+186,0,False,exec_error: KeyError: 'client_id',
+186,1,False,exec_error: KeyError: 'client_id',
+186,2,False,exec_error: KeyError: 'district_id',
+186,3,False,exec_error: KeyError: 'district_id',
+186,4,False,exec_error: KeyError: 'district_id',
+187,0,False,exec_error: KeyError: 'frequency',
+187,1,False,exec_error: KeyError: 'client_id',
+187,2,True,,False
+187,3,True,,False
+187,4,False,exec_error: KeyError: 'client_id',
+188,0,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+188,1,True,,False
+188,2,True,,False
+188,3,False,exec_error: KeyError: 'date',
+188,4,False,exec_error: UnboundLocalError: cannot access local variable 'loan' where it is not associated with a value,
+189,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+189,1,False,exec_error: KeyError: 'account_id',
+189,2,False,exec_error: TypeError: Cannot perform 'rand_' with a dtyped [float64] array and scalar of type [bool],
+189,3,False,exec_error: KeyError: 'A2',
+189,4,False,"exec_error: KeyError: ""None of [Index(['account_id'], dtype='str')] are in the [columns]""",
+190,0,True,,False
+190,1,True,,False
+190,2,True,,False
+190,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+190,4,False,exec_error: KeyError: 'district',
+191,0,True,,False
+191,1,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+191,2,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+191,3,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+191,4,False,exec_error: UnboundLocalError: cannot access local variable 'account' where it is not associated with a value,
+192,0,False,exec_error: KeyError: 'date',
+192,1,True,,False
+192,2,False,exec_error: KeyError: 'date_x',
+192,3,True,,False
+192,4,False,exec_error: KeyError: 'status_x',
+193,0,False,exec_error: KeyError: 'district_id',
+193,1,False,exec_error: KeyError: 'district_id',
+193,2,True,,False
+193,3,True,,False
+193,4,True,,False
+194,0,False,exec_error: KeyError: 'disp_id',
+194,1,False,exec_error: KeyError: 'client_id',
+194,2,False,exec_error: KeyError: 'client_id',
+194,3,,,
+194,4,False,exec_error: KeyError: 'type_x',

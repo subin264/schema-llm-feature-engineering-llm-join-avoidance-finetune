@@ -1,0 +1,531 @@
+question_id,repeat_idx,exec_ok,err,value_match
+89,0,False,exec_error: KeyError: 'A2',
+89,1,False,exec_error: KeyError: 'A2',
+89,2,False,exec_error: KeyError: 'A2',
+89,3,False,exec_error: KeyError: 'A7',
+89,4,False,exec_error: TypeError: Invalid comparison between dtype=datetime64[us] and StringArray,
+90,0,True,,False
+90,1,True,,False
+90,2,True,,False
+90,3,True,,False
+90,4,True,,False
+91,0,False,exec_error: ValueError: Can only compare identically-labeled Series objects,
+91,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+91,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+91,3,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+91,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+92,0,False,exec_error: KeyError: 'client_id',
+92,1,False,exec_error: KeyError: 'client_id',
+92,2,False,exec_error: KeyError: 'client_id',
+92,3,False,exec_error: KeyError: 'client_id',
+92,4,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+93,0,True,,False
+93,1,False,exec_error: KeyError: 'A1',
+93,2,True,,False
+93,3,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+93,4,True,,False
+94,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+94,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+94,2,False,exec_error: KeyError: 'account_id',
+94,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+94,4,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+95,0,False,exec_error: KeyError: 'Column not found: amount',
+95,1,False,exec_error: KeyError: 'salary',
+95,2,False,exec_error: KeyError: 'amount',
+95,3,False,exec_error: KeyError: 'client_id',
+95,4,True,,False
+96,0,True,,False
+96,1,True,,False
+96,2,True,,False
+96,3,False,exec_error: KeyError: 'client_type',
+96,4,True,,False
+97,0,True,,False
+97,1,True,,False
+97,2,True,,False
+97,3,False,exec_error: KeyError: 'client_id',
+97,4,True,,False
+98,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,1,True,,False
+98,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+98,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+99,0,True,,False
+99,1,False,exec_error: TypeError: Invalid comparison between dtype=timedelta64[us] and DateOffset,
+99,2,True,,False
+99,3,True,,False
+99,4,True,,False
+100,0,True,,False
+100,1,True,,False
+100,2,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+100,3,False,exec_error: KeyError: 'A2',
+100,4,True,,False
+101,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+101,1,False,exec_error: KeyError: 'date',
+101,2,False,exec_error: KeyError: 'date',
+101,3,False,exec_error: KeyError: 'date',
+101,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,0,True,,False
+102,1,True,,False
+102,2,False,exec_error: KeyError: 'amount',
+102,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+102,4,True,,False
+103,0,False,exec_error: KeyError: 'issue_date',
+103,1,False,exec_error: KeyError: 'issue_date',
+103,2,False,exec_error: KeyError: 'issue_date',
+103,3,False,exec_error: KeyError: 'issue_date',
+103,4,False,"exec_error: KeyError: ""None of [Index([    1,     2,     3,     4,     5,     6,     7,     8,     9,    10,\n       ...\n       13607, 13613, 13615, 13616, 13623, 13647, 1",
+104,0,True,,True
+104,1,True,,False
+104,2,True,,False
+104,3,False,exec_error: KeyError: 'date',
+104,4,True,,False
+105,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+105,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+105,2,True,,True
+105,3,True,,True
+105,4,True,,False
+106,0,False,exec_error: KeyError: 'card_id',
+106,1,False,exec_error: KeyError: 'client_id',
+106,2,False,exec_error: KeyError: 'Column not found: amount',
+106,3,False,exec_error: KeyError: 'Column not found: amount',
+106,4,False,exec_error: KeyError: 'client_id',
+107,0,True,,False
+107,1,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+107,2,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+107,3,True,,False
+107,4,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+108,0,False,exec_error: KeyError: 'amount',
+108,1,False,exec_error: KeyError: 'loan_id',
+108,2,False,exec_error: KeyError: 'amount',
+108,3,False,exec_error: KeyError: 'amount',
+108,4,False,exec_error: KeyError: 'date',
+109,0,True,,True
+109,1,True,,False
+109,2,True,,False
+109,3,True,,True
+109,4,True,,False
+110,0,False,exec_error: KeyError: 'client_id',
+110,1,False,exec_error: KeyError: 'client_id',
+110,2,False,exec_error: KeyError: 'amount',
+110,3,False,exec_error: KeyError: 'amount',
+110,4,False,exec_error: KeyError: 'amount',
+111,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+111,4,False,exec_error: NameError: name 'litomerec_district' is not defined,
+112,0,True,,False
+112,1,True,,False
+112,2,True,,False
+112,3,False,exec_error: KeyError: 'district_id',
+112,4,True,,False
+113,0,True,,False
+113,1,False,exec_error: KeyError: 'date',
+113,2,True,,False
+113,3,True,,False
+113,4,True,,False
+114,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+114,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,3,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+114,4,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+115,0,False,exec_error: ZeroDivisionError: division by zero,
+115,1,False,exec_error: ZeroDivisionError: division by zero,
+115,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+115,3,True,,False
+115,4,False,"exec_error: KeyError: ""None of [Index([178.11111111099999, 354.22222222199997, 530.333333333], dtype='float64')] are in the [index]""",
+116,0,False,exec_error: KeyError: 'amount',
+116,1,False,exec_error: KeyError: 'Column not found: amount',
+116,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+116,3,False,exec_error: KeyError: 'Column not found: amount',
+116,4,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+117,0,True,,False
+117,1,True,,False
+117,2,True,,False
+117,3,True,,False
+117,4,False,exec_error: TypeError: 0.0 is not a callable object,
+118,0,False,exec_error: TypeError: object of type 'int' has no len(),
+118,1,True,,False
+118,2,False,exec_error: KeyError: 'Active',
+118,3,False,exec_error: TypeError: unsupported operand type(s) for |: 'str' and 'StringArray',
+118,4,True,,False
+119,0,True,,False
+119,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+119,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+120,0,False,exec_error: KeyError: 'date',
+120,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+120,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+120,3,True,,False
+120,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+121,0,True,,True
+121,1,True,,False
+121,2,True,,True
+121,3,True,,True
+121,4,True,,True
+122,0,True,,False
+122,1,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+122,2,False,exec_error: KeyError: 'account_id',
+122,3,True,,False
+122,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+123,0,False,exec_error: KeyError: 'amount',
+123,1,False,exec_error: KeyError: 'loan_amount',
+123,2,False,exec_error: KeyError: 'date',
+123,3,False,exec_error: KeyError: 'account_id',
+123,4,False,exec_error: KeyError: 'A1',
+124,0,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+124,1,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+124,2,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+124,3,False,exec_error: TypeError: dtype 'str' does not support operation 'mean',
+124,4,False,exec_error: TypeError: Cannot perform reduction 'mean' with string dtype,
+125,0,False,exec_error: KeyError: 'date',
+125,1,False,exec_error: KeyError: 'date',
+125,2,False,exec_error: KeyError: 'year',
+125,3,False,exec_error: KeyError: 'date',
+125,4,False,"exec_error: KeyError: ""['district', 'state'] not in index""",
+126,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+126,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+127,0,True,,False
+127,1,True,,False
+127,2,False,exec_error: KeyError: 'frequency',
+127,3,True,,False
+127,4,True,,False
+128,0,True,,False
+128,1,False,exec_error: KeyError: 'Column not found: A2 A3 A4 A5 A6 A7 A8 A9 A10 A11 A12 A13 A14 A15 A16',
+128,2,True,,False
+128,3,False,"exec_error: KeyError: ""['district'] not in index""",
+128,4,True,,False
+129,0,False,exec_error: KeyError: 'Column not found: amount',
+129,1,True,,False
+129,2,False,exec_error: KeyError: 'A5',
+129,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+129,4,False,exec_error: KeyError: 'A2',
+130,0,False,exec_error: KeyError: 'A2',
+130,1,False,exec_error: KeyError: 'A2',
+130,2,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+130,3,True,,False
+130,4,False,exec_error: KeyError: 'credit_card',
+131,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,1,False,exec_error: KeyError: 'frequency_x',
+131,2,False,"exec_error: KeyError: ""['active_loans_count'] not in index""",
+131,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+131,4,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+132,0,False,exec_error: KeyError: 'amount',
+132,1,True,,False
+132,2,True,,False
+132,3,True,,False
+132,4,True,,False
+133,0,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+133,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+133,2,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+133,3,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+133,4,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'startswith',
+134,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+134,1,True,,True
+134,2,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+134,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+134,4,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+135,0,True,,False
+135,1,True,,False
+135,2,True,,False
+135,3,True,,False
+135,4,True,,False
+136,0,False,exec_error: KeyError: 'frequency',
+136,1,False,exec_error: KeyError: 'frequency',
+136,2,False,exec_error: KeyError: 'frequency',
+136,3,False,exec_error: KeyError: 'date',
+136,4,True,,False
+137,0,False,exec_error: KeyError: 'A1',
+137,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+137,2,True,,False
+137,3,True,,False
+137,4,True,,False
+138,0,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+138,1,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+138,2,False,"exec_error: ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+138,3,False,"exec_error: TypeError: Column 'A2' has dtype str, cannot use method 'nlargest' with this dtype",
+138,4,False,exec_error: TypeError: unsupported operand type(s) for -: 'str' and 'int',
+139,0,True,,False
+139,1,True,,False
+139,2,True,,False
+139,3,True,,False
+139,4,False,exec_error: KeyError: 'type',
+140,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+140,1,True,,False
+140,2,True,,True
+140,3,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+140,4,True,,False
+141,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+141,1,False,exec_error: KeyError: 'amount',
+141,2,False,exec_error: TypeError: unsupported operand type(s) for &: 'str' and 'DatetimeArray',
+141,3,False,exec_error: KeyError: 'Column not found: amount',
+141,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+142,0,True,,False
+142,1,True,,False
+142,2,True,,False
+142,3,False,exec_error: KeyError: 'account',
+142,4,False,exec_error: NameError: name 'houselhold_payment_accounts' is not defined,
+143,0,False,exec_error: KeyError: 'Column not found: type',
+143,1,True,,False
+143,2,True,,True
+143,3,False,exec_error: KeyError: 'account_id',
+143,4,True,,True
+144,0,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+144,1,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+144,2,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+144,3,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+144,4,False,exec_error: KeyError: 'type',
+145,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,2,False,exec_error: KeyError: 'date',
+145,3,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+145,4,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+146,0,False,exec_error: KeyError: 'client_id',
+146,1,False,exec_error: KeyError: 'client_id',
+146,2,False,exec_error: KeyError: 'client_id',
+146,3,True,,False
+146,4,False,exec_error: KeyError: 'client_id',
+147,0,False,exec_error: KeyError: 'A1',
+147,1,True,,False
+147,2,True,,False
+147,3,True,,False
+147,4,True,,False
+148,0,True,,False
+148,1,True,,False
+148,2,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+148,3,True,,False
+148,4,True,,False
+149,0,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+149,1,False,exec_error: KeyError: 'A1',
+149,2,True,,False
+149,3,False,exec_error: KeyError: 'A2',
+149,4,True,,False
+150,0,False,exec_error: KeyError: 'A3',
+150,1,False,exec_error: KeyError: 'A9',
+150,2,False,exec_error: KeyError: 'A9',
+150,3,False,exec_error: KeyError: 'A3',
+150,4,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+151,0,True,,False
+151,1,True,,False
+151,2,False,"exec_error: KeyError: ""['account_id', 'frequency', 'date'] not found in axis""",
+151,3,True,,False
+151,4,True,,False
+152,0,False,exec_error: IndexingError: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).,
+152,1,True,,False
+152,2,False,exec_error: NameError: name 'filtered_account' is not defined,
+152,3,False,exec_error: TypeError: '>=' not supported between instances of 'Timestamp' and 'str',
+152,4,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+153,0,True,,False
+153,1,True,,True
+153,2,True,,True
+153,3,True,,True
+153,4,True,,True
+154,0,True,,False
+154,1,False,exec_error: KeyError: 'A1',
+154,2,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+154,3,True,,False
+154,4,True,,False
+155,0,False,exec_error: ZeroDivisionError: division by zero,
+155,1,False,exec_error: NameError: name 'cards' is not defined,
+155,2,False,exec_error: TypeError: '<' not supported between instances of 'str' and 'int',
+155,3,False,exec_error: ZeroDivisionError: division by zero,
+155,4,False,exec_error: ZeroDivisionError: division by zero,
+156,0,True,,False
+156,1,True,,False
+156,2,False,exec_error: AttributeError: 'numpy.int64' object has no attribute 'unique',
+156,3,True,,False
+156,4,True,,False
+157,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,2,True,,False
+157,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+157,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,0,True,,True
+158,1,False,exec_error: UnboundLocalError: cannot access local variable 'order_df' where it is not associated with a value,
+158,2,True,,True
+158,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+158,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+159,0,True,,False
+159,1,False,exec_error: KeyError: 'district_id',
+159,2,True,,False
+159,3,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+159,4,True,,False
+160,0,True,,False
+160,1,True,,False
+160,2,True,,False
+160,3,True,,False
+160,4,True,,False
+161,0,True,,False
+161,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+161,3,False,exec_error: KeyError: 'account_id',
+161,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+162,0,True,,False
+162,1,True,,False
+162,2,True,,False
+162,3,True,,False
+162,4,True,,False
+163,0,True,,False
+163,1,True,,False
+163,2,False,exec_error: KeyError: 'status',
+163,3,True,,False
+163,4,False,exec_error: KeyError: 'A2',
+164,0,False,exec_error: KeyError: 'account_id',
+164,1,False,"exec_error: KeyError: ""['account_id_x'] not in index""",
+164,2,False,"exec_error: KeyError: ""['account_name'] not in index""",
+164,3,True,,False
+164,4,True,,False
+165,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+165,1,True,,False
+165,2,True,,False
+165,3,True,,False
+165,4,True,,False
+166,0,False,exec_error: KeyError: True,
+166,1,True,,True
+166,2,True,,True
+166,3,True,,True
+166,4,True,,True
+167,0,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,1,True,,False
+167,2,True,,False
+167,3,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+167,4,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+168,0,True,,False
+168,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+168,2,True,,False
+168,3,True,,False
+168,4,False,exec_error: TypeError: '>' not supported between instances of 'str' and 'int',
+169,0,True,,False
+169,1,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+169,2,False,"exec_error: ValueError: Invalid frequency: Y. Failed to parse with error message: ValueError(""'Y' is no longer supported for offsets. Please use 'YE' instead."")",
+169,3,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+169,4,True,,False
+170,0,False,exec_error: AttributeError: 'Timestamp' object has no attribute 'split',
+170,1,True,,False
+170,2,True,,False
+170,3,False,exec_error: TypeError: '>' not supported between instances of 'Timestamp' and 'str',
+170,4,False,exec_error: TypeError: 'Timestamp' object is not subscriptable,
+171,0,False,exec_error: IndexError: single positional indexer is out-of-bounds,
+171,1,False,exec_error: TypeError: unsupported operand type(s) for |: 'StringArray' and 'StringArray',
+171,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+171,3,False,exec_error: KeyError: 'date',
+171,4,True,,False
+172,0,True,,False
+172,1,False,exec_error: NameError: name 'df_disps' is not defined,
+172,2,True,,False
+172,3,True,,False
+172,4,True,,False
+173,0,False,exec_error: KeyError: 'frequency',
+173,1,True,,False
+173,2,False,exec_error: KeyError: 'frequency',
+173,3,False,exec_error: KeyError: 'Column not found: amount',
+173,4,True,,False
+174,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,1,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+174,3,False,exec_error: KeyError: 0,
+174,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+175,0,True,,False
+175,1,False,exec_error: KeyError: 'type_x',
+175,2,True,,False
+175,3,True,,False
+175,4,True,,False
+176,0,True,,False
+176,1,True,,False
+176,2,False,exec_error: KeyError: 'amount',
+176,3,False,exec_error: KeyError: 'amount',
+176,4,False,exec_error: KeyError: 'Column not found: disp_amount',
+177,0,False,exec_error: KeyError: 'account_id',
+177,1,False,exec_error: KeyError: 'disp_id',
+177,2,False,exec_error: KeyError: 'account_id',
+177,3,False,exec_error: ValueError: attempt to get argmax of an empty sequence,
+177,4,False,exec_error: KeyError: 'amount',
+178,0,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,1,True,,False
+178,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+178,3,True,,False
+178,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+179,0,False,exec_error: AttributeError: Can only use .dt accessor with datetimelike values,
+179,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not integer",
+179,2,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+179,3,False,exec_error: KeyError: 'amount',
+179,4,False,"exec_error: ValueError: Operands are not aligned. Do `left, right = left.align(right, axis=1)` before operating.",
+180,0,True,,False
+180,1,True,,False
+180,2,True,,False
+180,3,True,,False
+180,4,True,,False
+181,0,True,,False
+181,1,True,,False
+181,2,True,,False
+181,3,True,,False
+181,4,True,,False
+182,0,False,"exec_error: AttributeError: Can only use .str accessor with string values, not floating",
+182,1,False,exec_error: KeyError: 'date',
+182,2,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+182,3,,,
+182,4,False,exec_error: KeyError: 'date',
+183,0,,,
+183,1,False,exec_error: KeyError: 'account_id',
+183,2,True,,False
+183,3,True,,False
+183,4,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+184,0,True,,False
+184,1,True,,False
+184,2,True,,False
+184,3,True,,False
+184,4,True,,False
+185,0,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+185,1,False,exec_error: IndexError: index 0 is out of bounds for axis 0 with size 0,
+185,2,True,,False
+185,3,False,exec_error: ZeroDivisionError: division by zero,
+185,4,True,,False
+186,0,False,exec_error: ZeroDivisionError: division by zero,
+186,1,True,,False
+186,2,False,exec_error: ZeroDivisionError: division by zero,
+186,3,True,,False
+186,4,True,,False
+187,0,True,,False
+187,1,True,,False
+187,2,False,exec_error: KeyError: 'client_id',
+187,3,True,,False
+187,4,True,,False
+188,0,False,exec_error: TypeError: Invalid comparison between dtype=timedelta64[us] and int,
+188,1,False,exec_error: KeyError: 'date',
+188,2,False,exec_error: KeyError: 'date',
+188,3,False,exec_error: TypeError: Invalid comparison between dtype=timedelta64[us] and int,
+188,4,False,"exec_error: TypeError: Addition/subtraction of integers and integer-arrays with DatetimeArray is no longer supported.  Instead of adding/subtracting `n`, use `n * obj.freq`",
+189,0,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+189,1,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+189,2,False,exec_error: KeyError: 'client',
+189,3,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+189,4,False,"exec_error: TypeError: can only concatenate str (not ""int"") to str",
+190,0,True,,False
+190,1,False,"exec_error: AttributeError: Can only use .str accessor with string values, not datetime64",
+190,2,True,,False
+190,3,False,exec_error: KeyError: 'A1',
+190,4,True,,False
+191,0,False,exec_error: KeyError: 'frequency',
+191,1,True,,False
+191,2,True,,False
+191,3,True,,False
+191,4,True,,False
+192,0,False,exec_error: KeyError: 'frequency',
+192,1,True,,False
+192,2,True,,False
+192,3,False,exec_error: KeyError: 'status_x',
+192,4,True,,False
+193,0,False,exec_error: KeyError: 'account_id',
+193,1,True,,False
+193,2,False,exec_error: KeyError: 'account_id',
+193,3,True,,False
+193,4,True,,False
+194,0,True,,False
+194,1,False,exec_error: KeyError: 'age_y',
+194,2,True,,False
+194,3,True,,False
+194,4,True,,False
